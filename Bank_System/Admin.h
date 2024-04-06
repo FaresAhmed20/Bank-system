@@ -1,17 +1,39 @@
 #pragma once
-#include "Employee.h"
+#include "Person.h"
 
 
+class Admin : public Person
+{
 
-class Admin : public Employee {
+private:
+	int salary;
 
 public:
+	static int admin_count;
+    int admin_id;
 
     //default constructor
     Admin();
 
+
     //parametrized constructor
-    Admin(string name, int id, string password, int salary);
+    Admin(string name, string password, int salary);
+
+    
+
+    //setters
+    void set_salary(int salary);
+
+ 
+
+    //getters
+    double get_salary();
+    int get_id();
+    
+
+    //methods
+    void display_info();
+    
 
 };
 
