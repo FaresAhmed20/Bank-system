@@ -1,17 +1,26 @@
 #include "Employee.h"
+#include "idGenerator.h"
 
 
 
 Employee::Employee()
-{}
+{
 
-Employee::Employee(string name, int id, string password, int salary)
-    :Person(name, id, password), salary(salary)
+    IdGenerator::employeeId();
+    employee_id = employee_count;
+}
+
+Employee::Employee(string name, string password, int salary)
+    :Person(name, password), salary(salary)
 {
 
     set_name(name);
     set_password(password);
     set_salary(salary);
+    IdGenerator::employeeId();
+    employee_id = employee_count;
+
+
 }
 
 //setters
@@ -33,9 +42,6 @@ void Employee::set_salary(int salary) {
 
     }
 
-
-
-
 }
 
 
@@ -45,11 +51,18 @@ double Employee::get_salary()
     return salary;
 }
 
+int Employee::get_id()
+{
+    return employee_id;
+}
+
 //methods
 void Employee::display_info()
 {
     cout << "Name: " << name << endl
-        << "ID: " << id << endl
+        << "ID: " << employee_id << endl
         << "Password: " << password << endl
         << "Salary: " << salary << endl;
 }
+
+int Employee::employee_count = 200;

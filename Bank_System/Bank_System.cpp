@@ -1,39 +1,44 @@
-
-
-
-
 #include "iostream"
 #include "Person.h"
 #include "Employee.h"
 #include "Admin.h"
-#include "Clint.h"
 
+#include "Client.h"
 
 using namespace std;
 
+//Newest
 int main() {
 
 
     string name, password;
     int id, salary;
     double balance;
-    /*
-        cout<<"enter name ";
-        cin>>name;
-        cout<<"enter id ";
-        cin>>id;
-        cout<<"enter pass";
-        cin>>password;
-        cout<<"enter salary";
-        cin>>salary;
+
+    
+    //test
+    /*for (int i = 1; i <= 150; i++)
+    {
+        Admin* a = new Admin("OmarSabry", "123456789", 5550);
+        a->display_info();
+    }
+
+    for (int i = 1; i <= 150; i++)
+    {
+        Employee* e = new Employee("FaresAhmed", "123456789", 5550);
+        e->display_info();
+    }
+
+    for (int i = 1; i <= 150; i++)
+    {
+        Client* c = new Client("SeifKhalid", "123456789", 5550);
+        c->display_info();
+    }*/
 
 
-        Employee s(name , id , password , salary);
-    s.display_info();
-    */
 
-
-    Admin a;
+   
+   /* Admin a;
     cout << "Name: ";
     cin >> name;
     a.set_name(name);
@@ -47,7 +52,7 @@ int main() {
     cin >> salary;
     a.set_salary(salary);
     cout << "==============================\n";
-    a.display_info();
+    a.display_info();*/
 
     /*
         Client c;

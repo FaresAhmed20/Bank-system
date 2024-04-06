@@ -129,15 +129,17 @@
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="Bank_System.cpp" />
-    <ClCompile Include="Clint.cpp" />
+    <ClCompile Include="Client.cpp" />
     <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="IdGenerator.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="Validation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
-    <ClInclude Include="Clint.h" />
+    <ClInclude Include="Client.h" />
     <ClInclude Include="Employee.h" />
+    <ClInclude Include="IdGenerator.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Validation.h" />
   </ItemGroup>

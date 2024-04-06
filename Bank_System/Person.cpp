@@ -9,8 +9,8 @@ Person::Person()
 {}
 
 
-Person::Person(string name, int id, string password)
-    :name(name), id(id), password(password) {
+Person::Person(string name, string password)
+    :name(name), password(password) {
     set_name(name);
     set_password(password);
 }
@@ -64,22 +64,11 @@ void Person::set_password(string password)
 }
 
 
-void Person::set_id(int id) {
-
-    Person::id = id;
-}
-
-
 //getters
 
 string Person::get_name() {
 
     return name;
-}
-
-int Person::get_id() {
-
-    return id;
 }
 
 string Person::get_password() {

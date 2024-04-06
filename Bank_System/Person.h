@@ -12,8 +12,6 @@ class Person
 {
 protected:
     string name, password;
-    int id;
-
 
 public:
 
@@ -21,18 +19,17 @@ public:
     Person();
 
     //parametrized constructor
-    Person(string name, int id, string password);
+    Person(string name, string password);
 
-    Person(int id, string password);
+    Person(string password);
 
     //setters
     void set_name(string name);
-    void set_id(int id);
+
     void set_password(string password);
 
     //getters
     string get_name();
-    int get_id();
     string get_password();
 
 
