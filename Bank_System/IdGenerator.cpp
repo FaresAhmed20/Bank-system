@@ -26,9 +26,6 @@ void IdGenerator::adminId()
     else
     {
         Admin::admin_count++;
-      
-
-
     }
 }
 

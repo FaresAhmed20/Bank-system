@@ -2,7 +2,6 @@
 #include "Person.h"
 #include "Employee.h"
 #include "Admin.h"
-
 #include "Client.h"
 
 using namespace std;
@@ -14,6 +13,20 @@ int main() {
     string name, password;
     int id, salary;
     double balance;
+
+
+
+    Client a("fares", "ffffffff", 5000);
+    Client b("ahmed", "ahmed ", 7000);
+
+    a.transfer_to(100000, b);
+
+    cout<<a.get_balance();
+    cout << b.get_balance();
+
+
+
+
 
     
     //test
