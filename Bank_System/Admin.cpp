@@ -64,7 +64,7 @@ int Admin::get_id()
 void Admin::display_info()
 {
     cout << "Name: " << name << endl
-        << "ID: " << admin_id << endl
+        << "You'r unique ID is : " << admin_id << endl
         << "Password: " << password << endl
         << "Salary: " << salary << endl;
 }

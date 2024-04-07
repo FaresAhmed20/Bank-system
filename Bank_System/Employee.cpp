@@ -60,7 +60,7 @@ int Employee::get_id()
 void Employee::display_info()
 {
     cout << "Name: " << name << endl
-        << "ID: " << employee_id << endl
+        << "You'r unique ID is : " << employee_id << endl
         << "Password: " << password << endl
         << "Salary: " << salary << endl;
 }

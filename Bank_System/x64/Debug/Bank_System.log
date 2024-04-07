@@ -1,5 +1,8 @@
-﻿  Bank_System.cpp
-D:\New folder\Bank-system-master\Bank_System\Bank_System.cpp(15,13): warning C4101: 'salary': unreferenced local variable
-D:\New folder\Bank-system-master\Bank_System\Bank_System.cpp(16,12): warning C4101: 'balance': unreferenced local variable
-D:\New folder\Bank-system-master\Bank_System\Bank_System.cpp(15,9): warning C4101: 'id': unreferenced local variable
-  Bank_System.vcxproj -> D:\New folder\Bank-system-master\x64\Debug\Bank_System.exe
+﻿  Admin.cpp
+  Client.cpp
+  Employee.cpp
+  Validation.cpp
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Validation.cpp(7,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Validation.cpp(30,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Bank_System.vcxproj -> C:\Users\Blu-Ray\Bank_System\Bank-system\x64\Debug\Bank_System.exe
