@@ -6,9 +6,6 @@ bool Validation::check_name(string& name) {
 
 	int count = name.size();
 
-
-
-
 	for (char c : name) {
 
 
