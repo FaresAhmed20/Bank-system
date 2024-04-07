@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Validation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Validation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Client.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Client.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\IdGenerator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\IdGenerator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Validation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Validation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Person.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Bank_System.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Bank_System.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\IdGenerator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\IdGenerator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Person.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -62,11 +62,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 285,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Bank_System.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Bank_System.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Bank_System.cpp",
@@ -75,8 +75,7 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-05T23:57:42.145Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -91,34 +90,38 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "IdGenerator.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\IdGenerator.cpp",
               "RelativeDocumentMoniker": "Bank_System\\IdGenerator.cpp",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\IdGenerator.cpp",
               "RelativeToolTip": "Bank_System\\IdGenerator.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-06T00:07:32.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Client.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Client.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Client.cpp",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Client.cpp",
               "RelativeToolTip": "Bank_System\\Client.cpp",
-              "ViewState": "AQIAAFAAAABAMzMzM5MwwFQAAAAIAAAA",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAAAGQAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-05T23:58:58.213Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Person.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Person.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Person.cpp",
@@ -126,12 +129,11 @@
               "RelativeToolTip": "Bank_System\\Person.cpp",
               "ViewState": "AQIAACEAAAAAAAAAAAAAAD0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-06T00:14:11.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T00:14:11.09Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Employee.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Employee.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Employee.cpp",
@@ -139,12 +141,11 @@
               "RelativeToolTip": "Bank_System\\Employee.cpp",
               "ViewState": "AQIAAD4AAAAAAAAAAAAAACYAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-05T23:57:45.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T23:57:45.311Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Validation.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Validation.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Validation.cpp",
@@ -165,8 +166,7 @@
               "RelativeToolTip": "Bank_System\\Validation.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-05T23:57:44.484Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T23:57:44.484Z"
             },
             {
               "$type": "Document",
@@ -178,12 +178,11 @@
               "RelativeToolTip": "Bank_System\\Person.h",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAACEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-06T00:13:40.854Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T00:13:40.854Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Admin.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Admin.cpp",
@@ -191,8 +190,7 @@
               "RelativeToolTip": "Bank_System\\Admin.cpp",
               "ViewState": "AQIAABsAAAAAAAAAAAAAAEIAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-06T00:58:09.364Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-06T00:58:09.364Z"
             },
             {
               "$type": "Document",
