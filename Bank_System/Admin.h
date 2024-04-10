@@ -1,6 +1,8 @@
 #pragma once
 #include "Person.h"
-
+#include"Employee.h"
+#include"FileManager.h"
+class Employee;
 
 class Admin : public Person
 {
@@ -34,6 +36,10 @@ public:
     //methods
     void display_info();
     
+    void add_Client(Client& client);
+
+    void add_Employee(Employee& employee);
 
 };
 
+static vector<Admin> Admins;

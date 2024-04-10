@@ -70,4 +70,27 @@ void Admin::display_info()
 }
 
 
+
+void Admin::add_Client(Client& client) {
+
+
+    FileManager::add_Client(client);
+
+}
+
+
+void Admin::add_Employee(Employee& employee) {
+
+    FileManager::add_Employee(employee);
+}
+
+
+
+
+
+
+
+
+
+
 int Admin::admin_count = 100;

@@ -65,4 +65,20 @@ void Employee::display_info()
         << "Salary: " << salary << endl;
 }
 
+
+
+
+
+void Employee::add_Client(Client& client) {
+
+
+    FileManager::add_Client(client);
+
+}
+
+
+
+
+
+
 int Employee::employee_count = 200;

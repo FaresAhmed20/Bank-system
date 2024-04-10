@@ -1,7 +1,5 @@
 #include "Person.h"
-
-
-#include"string"
+#include<string>
 #include "limits"
 
 //default constructor

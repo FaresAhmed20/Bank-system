@@ -5,6 +5,7 @@
 #include<iostream>
 #include"string"
 #include "Validation.h"
+#include"vector"
 using namespace std;
 
 

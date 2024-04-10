@@ -3,29 +3,18 @@
 #include "Employee.h"
 #include "Admin.h"
 #include "Client.h"
-
 using namespace std;
 
-//Newest
+
 int main() {
 
+    Client c;
 
-    string name, password;
-    int id, salary;
-    double balance;
+    Employee e;
 
+    Admin s;
 
-
-    Client a("fares", "ffffffff", 5000);
-    Client b("ahmed", "ahmed ", 7000);
-
-    a.transfer_to(100000, b);
-
-    cout<<a.get_balance();
-    cout << b.get_balance();
-
-
-
+    s.add_Employee(e);
 
 
     
