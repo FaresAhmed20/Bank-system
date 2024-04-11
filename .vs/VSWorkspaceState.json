@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Bank_System"
   ],
-  "SelectedNode": "\\Bank_System.sln",
+  "SelectedNode": "\\Bank_System\\FilesHelper.cpp",
   "PreviewInSolutionExplorer": false
 }
