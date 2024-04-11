@@ -1,13 +1,18 @@
 #pragma once
-#include "Person.h"
 #include "iostream"
+#include "Person.h"
+#include"Client.h"
+#include"FileManager.h"
+
+
+
 
 using namespace std;
 
 
 
 
-class Employee : public Person {
+class Employee : public Person  {
 protected:
     int salary;
 public:
@@ -31,5 +36,11 @@ public:
     //methods
     void display_info();
 
+    void add_Client(Client& client);
+
+    void Get_All_Clients();
+
+    void list_clients();
 };
 
+static vector<Employee> Employees;
