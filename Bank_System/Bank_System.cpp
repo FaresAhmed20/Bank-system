@@ -3,32 +3,20 @@
 #include "Employee.h"
 #include "Admin.h"
 #include "Client.h"
-
 using namespace std;
 
-//Newest
+
 int main() {
 
 
-    string name, password;
-    int id, salary;
-    double balance;
+    vector<Client> e;
 
-
-
-    Client a("fares", "ffffffff", 5000);
-    Client b("ahmed", "ahmed ", 7000);
-
-    a.transfer_to(100000, b);
-
-    cout<<a.get_balance();
-    cout << b.get_balance();
-
-
-
-
-
+    Employee w;
     
+    w.list_clients();
+    
+
+
     //test
     /*for (int i = 1; i <= 150; i++)
     {

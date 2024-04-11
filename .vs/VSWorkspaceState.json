@@ -3,6 +3,10 @@
     "",
     "\\Bank_System"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\Bank_System\\Client.cpp",
+=======
+  "SelectedNode": "\\Bank_System\\FilesHelper.cpp",
+>>>>>>> f
   "PreviewInSolutionExplorer": false
 }

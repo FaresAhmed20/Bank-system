@@ -1,9 +1,6 @@
 #pragma once
-#include "Person.h"
-
-#pragma once
 #include <iostream>
-
+#include<vector>
 #include "Person.h"
 
 
@@ -45,3 +42,5 @@ public:
     void display_info();
 };
 
+static vector<Client> clients;
+static vector<Client>::iterator it;
