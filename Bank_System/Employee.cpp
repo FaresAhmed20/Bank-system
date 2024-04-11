@@ -71,14 +71,25 @@ void Employee::display_info()
 
 void Employee::add_Client(Client& client) {
 
-
     FileManager::add_Client(client);
+}
+
+
+
+void Employee::Get_All_Clients() {
+
+    FileManager::get_all_Clients();
 
 }
 
 
 
+void Employee::list_clients() {
 
+    FilesHelper::get_all_Clients();
+    FilesHelper::desplay_all_clients();
+
+}
 
 
 int Employee::employee_count = 200;

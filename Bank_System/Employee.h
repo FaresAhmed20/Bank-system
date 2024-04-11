@@ -38,7 +38,9 @@ public:
 
     void add_Client(Client& client);
 
+    void Get_All_Clients();
 
+    void list_clients();
 };
 
 static vector<Employee> Employees;

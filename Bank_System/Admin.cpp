@@ -85,9 +85,20 @@ void Admin::add_Employee(Employee& employee) {
 }
 
 
+void Admin::list_clients() {
 
 
+    FilesHelper::get_all_Clients();
+    FilesHelper::desplay_all_clients();
+}
 
+void Admin::list_Employee() {
+
+
+    FilesHelper::get_all_Employee();
+    FilesHelper::desplay_all_employee();
+
+}
 
 
 

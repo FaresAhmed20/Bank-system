@@ -8,16 +8,15 @@ using namespace std;
 
 int main() {
 
-    Client c;
 
-    Employee e;
+    vector<Client> e;
 
-    Admin s;
-
-    s.add_Employee(e);
-
-
+    Employee w;
     
+    w.list_clients();
+    
+
+
     //test
     /*for (int i = 1; i <= 150; i++)
     {

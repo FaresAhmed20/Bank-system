@@ -1,13 +1,4 @@
-﻿  Admin.cpp
-  Bank_System.cpp
-  Client.cpp
-  DataSourceInterface.cpp
+﻿  Bank_System.cpp
   Employee.cpp
-  FileManager.cpp
-  FilesHelper.cpp
-  IdGenerator.cpp
-C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(23,32): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(45,38): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(72,34): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Generating Code...
   Bank_System.vcxproj -> C:\Users\Blu-Ray\Bank_System\Bank-system\x64\Debug\Bank_System.exe

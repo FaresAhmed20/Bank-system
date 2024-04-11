@@ -2,7 +2,7 @@
 
 
 
-void FileManager::add_Client(Client client) {
+void FileManager::add_Client(Client &client) {
 	
 
 	string name, password;
@@ -20,10 +20,7 @@ void FileManager::add_Client(Client client) {
 	client.set_balance(balance);
 
 	
-	clients.push_back(client);
 	FilesHelper::save_Client(client);
-	
-
 	
 }
 
@@ -46,9 +43,6 @@ void FileManager::add_Employee(Employee& employee) {
 	employee.set_salary(salary);
 
 
-
-
-	Employees.push_back(employee);
 	FilesHelper::save_Employee(employee);
 
 }
@@ -71,8 +65,22 @@ void FileManager::add_Admin(Admin &admin) {
 	admin.set_salary(salary);
 
 
-
-	Admins.push_back(admin);
 	FilesHelper::save_Admins(admin);
 
 }
+
+
+
+void FileManager::get_all_Clients() {
+
+	FilesHelper::get_all_Clients();
+	
+}
+
+
+void FileManager::get_all_Employee() {
+
+	FilesHelper::get_all_Employee();
+
+}
+	

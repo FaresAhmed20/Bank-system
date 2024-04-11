@@ -40,6 +40,10 @@ public:
 
     void add_Employee(Employee& employee);
 
+    void list_clients();
+
+    void list_Employee();
+
 };
 
 static vector<Admin> Admins;

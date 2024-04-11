@@ -43,4 +43,4 @@ public:
 };
 
 static vector<Client> clients;
-
+static vector<Client>::iterator it;
