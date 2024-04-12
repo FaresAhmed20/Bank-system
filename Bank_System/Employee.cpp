@@ -86,10 +86,18 @@ void Employee::Get_All_Clients() {
 
 void Employee::list_clients() {
 
-    FilesHelper::get_all_Clients();
     FilesHelper::desplay_all_clients();
-
 }
+
+
+
+void Employee::Client_search(int id) {
+
+    FileManager::Client_search(id);
+}
+
+
+
 
 
 int Employee::employee_count = 200;

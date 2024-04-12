@@ -1,4 +1,3 @@
-Name,Id,Password,Salary
-
-fares,202,fares@408000
-mohamed,202,1598757000
+fares,201,fares@20,7000
+mohamed,202,mo@10,9000
+omarr,203,omar@50,7000

@@ -24,5 +24,13 @@ public:
 	static void desplay_all_clients();
 	static void desplay_all_employee();
 	static void desplay_all_admins();
+	static Client* Client_search(int id);
+	static Employee* Employee_search(int id);
+	static Admin* Admin_search(int id);
+	static void Client_last_id(int& id);
+	static void Employee_last_id(int& id);
+	static void Admin_last_id(int& id);
+	/*template <class Ty>
+	static Ty* Search_all_data(int id);*/
 };
 
