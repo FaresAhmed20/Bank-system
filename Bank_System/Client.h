@@ -27,6 +27,7 @@ public:
 
     //setters
     void set_balance(double balance);
+    void set_id(int id);
 
     //getters
     double get_balance();

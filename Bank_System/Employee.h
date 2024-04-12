@@ -41,6 +41,8 @@ public:
     void Get_All_Clients();
 
     void list_clients();
+
+    void Client_search(int id);
 };
 
 static vector<Employee> Employees;

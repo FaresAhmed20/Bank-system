@@ -44,6 +44,10 @@ public:
 
     void list_Employee();
 
+    void Client_search(int id);
+
+    void Employee_search(int id);
+
 };
 
 static vector<Admin> Admins;
