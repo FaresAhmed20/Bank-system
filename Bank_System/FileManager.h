@@ -21,5 +21,10 @@ public:
 	static void get_all_Clients();
 	static void get_all_Employee();
 	static void get_all_Admins();
+	static Client* Client_search(int id);
+	static Employee* Employee_search(int id);
+	static Admin* Admin_search(int id);
+	template <class Ty>
+	static Ty* Search_all_data(int id);
 };
 

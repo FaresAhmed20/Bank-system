@@ -3,19 +3,17 @@
 #include "Employee.h"
 #include "Admin.h"
 #include "Client.h"
+
 using namespace std;
 
 
 int main() {
 
 
-    vector<Client> e;
-
-    Employee w;
     
-    w.list_clients();
-    
+    Admin d;
 
+    d.Employee_search(201);
 
     //test
     /*for (int i = 1; i <= 150; i++)

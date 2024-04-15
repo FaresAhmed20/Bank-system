@@ -84,3 +84,113 @@ void FileManager::get_all_Employee() {
 
 }
 	
+
+Client* FileManager::Client_search(int id) {
+
+	
+
+	while (true) {
+
+
+
+		if (FilesHelper::Client_search(id) == nullptr) {
+
+			cout << "Clint not found " << endl;
+			cout << "Are you want to search using another id : (y/n) ";
+			char c;
+			cin >> c;
+			if (c == 'y' || c == 'Y') {
+				cout << "Enter the new id you want to search for : ";
+				cin.clear();
+				cin.ignore(INT_MAX, '\n');
+				cin >> id;
+			}
+			else {
+				return 0;
+			}
+			
+		}
+		else {
+			cout << "Client information is : " << endl;
+			FilesHelper::Client_search(id)->display_info();
+			return 0;
+		}
+
+	}
+
+}
+
+
+
+
+Employee* FileManager::Employee_search(int id) {
+
+	
+
+	while (true) {
+
+
+
+		if (FilesHelper::Employee_search(id) == nullptr) {
+
+			cout << "Employee is not found " << endl;
+			cout << "Are you want to search using another id : (y/n) ";
+			char c;
+			cin >> c;
+			if (c == 'y' || c == 'Y') {
+				cout << "Enter the new id you want to search for : ";
+				cin.clear();
+				cin.ignore(INT_MAX, '\n');
+				cin >> id;
+			}
+			else {
+				return 0;
+			}
+
+		}
+		else {
+			cout << "Employee data  is : " << endl;
+			FilesHelper::Employee_search(id)->display_info();
+			return 0;
+		}
+
+	}
+
+
+
+}
+
+
+Admin* FileManager::Admin_search(int id) {
+
+	
+
+
+	if (FilesHelper::Admin_search(id) == nullptr) {
+
+		cout << "Admin is not found. " << endl;
+		cout << "Are you want to search using another id : (y/n) ";
+		char c;
+		cin >> c;
+		if (c == 'y' || c == 'Y') {
+			cout << "Enter the new id you want to search for : ";
+			cin.clear();
+			cin.ignore(INT_MAX, '\n');
+			cin >> id;
+		}
+		else {
+			return 0;
+		}
+
+	}
+	else {
+		cout << "Admin information is : " << endl;
+		FilesHelper::Admin_search(id)->display_info();
+		return 0;
+	}
+}
+
+
+
+
+
