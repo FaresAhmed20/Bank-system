@@ -46,6 +46,17 @@ void Client::set_balance(double balance) {
 
 }
 
+
+
+void Client::set_id(int id) {
+
+    IdGenerator::clientId();
+    client_id = client_count;
+
+}
+
+
+
 //getters
 double Client::get_balance()
 {

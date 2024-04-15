@@ -39,12 +39,13 @@ Client Parser::phaser_to_client(string line) {
 Employee Parser::phasee_to_employee(string line) {
 
 	vector<string> data = split(line);
-
+	
 	Employee employee;
 
 	employee.set_name(data[0]);
 	employee.set_password(data[2]);
 	employee.set_salary(stoi(data[3]));
+
 
 	return employee;
 }

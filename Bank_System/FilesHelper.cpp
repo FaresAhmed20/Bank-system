@@ -4,22 +4,34 @@
 
 void FilesHelper::save_Client(Client &client) {
 
+	ifstream file2 ("Client_last_id.txt");
+
+	int last_id;
+
+	file2 >> last_id;
 	
-	
+
+	IdGenerator::last_Client_id(last_id);
+
 	ofstream file("Client.txt", ios::app);
 
 	if (!file.is_open()) {
 		cout << "Error while opening the file" << endl;
 	}
 	else {
-		file << '\n';
+		
 		file << client.get_name() << "," 
-			<< client.get_id() << ',' 
+			<< last_id << ',' 
 			<< client.get_password() 
-			<< ',' << client.get_balance();
+			<< ',' << client.get_balance()<<'\n';
 		file.close();
 	}
 
+
+	ofstream file3("Client_last_id.txt");
+
+	file3 << last_id;
+	file3.close();
 }
 
 
@@ -27,10 +39,13 @@ void FilesHelper::save_Client(Client &client) {
 
 void FilesHelper::save_Employee(Employee &employee) {
 
-	IdGenerator::employeeId();
-	int id = Employee::employee_count;
-	Employee::employee_count++;
+	ifstream file2("Employee_last_id.txt");
 
+	int last_id;
+
+	file2 >> last_id;
+
+	IdGenerator::last_Employee_id(last_id);
 
 	ofstream file("Employee.txt", ios::app); 
 
@@ -40,24 +55,32 @@ void FilesHelper::save_Employee(Employee &employee) {
 		}
 		else {
 
-			file << '\n';
 			file << employee.get_name() << ","
-				<< id << ","
-				<< employee.get_password()
-				<< employee.get_salary();
-
+				<< last_id << ","
+				<< employee.get_password()<<','
+				<< employee.get_salary()<<'\n';
+			
 			file.close();
 		}
 
+
+		ofstream file3("Employee_last_id.txt");
+
+		file3 << last_id;
+		file3.close();
 }
 
 
 
 void FilesHelper::save_Admins(Admin &admin) {
 
-	IdGenerator::adminId();
-	int id = Admin::admin_count;
-	Admin::admin_count++;
+	ifstream file2("Admin_last_id.txt");
+	
+	int last_id;
+
+	file2 >> last_id;
+
+	IdGenerator::last_Admin_id(last_id);
 
 
 	ofstream file("Admin.txt", ios::app);
@@ -70,16 +93,22 @@ void FilesHelper::save_Admins(Admin &admin) {
 	}
 	else {
 
-		file << '\n';
+		
 		file << admin.get_name() << ","
-			<< id << ","
-			<< admin.get_password()
-			<< admin.get_salary();
+			<< last_id << ","
+			<< admin.get_password()<<","
+			<< admin.get_salary()<<'\n';
 
 
 		file.close();
 
 	}
+
+	ofstream file3("Admin_last_id.txt");
+
+	file3 << last_id;
+
+	file3.close();
 
 }
 
@@ -95,15 +124,15 @@ void FilesHelper::get_all_Clients() {
 	}
 	else {
 
-		while (file.good()) {
-			getline(file, line);
+		while(getline(file, line)) {
+			
 			Client client = Parser::phaser_to_client(line);
 			clients.push_back(client);
 		}
 		file.close();
 
 	}
-
+	
 
 }
 
@@ -114,25 +143,25 @@ void FilesHelper::get_all_Employee() {
 
 	ifstream file;
 	string line;
-	file.open("Employee.txt", ios::in);
-
+	file.open("Employee.txt");
+	
 	if (!file.is_open()) {
 		cout << "Error while opening the file " << endl;
 	}
 	else {
-
-		while (file.good()) {
-
-			getline(file, line);
-
+		
+		while (getline(file, line)) {
+			
 			Employee employee = Parser::phasee_to_employee(line);
-
 			Employees.push_back(employee);
 		}
 		file.close();
 		
 	}
 
+	for (auto& s : Employees) {
+		 s;
+	}
 }
 
 
@@ -149,9 +178,9 @@ void FilesHelper::get_all_Admins() {
 	}
 	else {
 
-		while (file.good()) {
+		while (getline(file, line)) {
 
-			getline(file, line);
+			
 
 			Admin admin = Parser::phaser_to_admin(line);
 			Admins.push_back(admin);
@@ -165,11 +194,14 @@ void FilesHelper::get_all_Admins() {
 
 void FilesHelper::desplay_all_clients() {
 
-	for (auto& client : clients) {
+	get_all_Clients();
 
+	for (auto& client : clients) {
+		
 		client.display_info();
 		cout << "--------------------" << endl;
 	}
+	exit;
 }
 
 
@@ -192,3 +224,115 @@ void FilesHelper::desplay_all_admins() {
 		cout << "--------------------" << endl;
 	}
 }
+
+
+Client* FilesHelper::Client_search(int id) {
+
+	
+	get_all_Clients();
+
+	for (auto& Client : clients) {
+		
+		if (Client.get_id() == id) {
+
+			return &Client;
+		}
+		exit;
+	}
+
+	return NULL;
+	
+}
+
+
+Employee* FilesHelper::Employee_search(int id) {
+
+	get_all_Employee();
+	
+	for (auto &Employee : Employees) {
+		
+		if (Employee.get_id() == id) {
+
+			return &Employee;
+			
+		}
+
+	}
+	return NULL;
+}
+
+
+Admin* FilesHelper::Admin_search(int id) {
+
+	get_all_Admins();
+
+	for (auto& Admin : Admins) {
+
+		if (Admin.get_id() == id) {
+
+			return &Admin;
+		}
+	}
+}
+
+
+//
+//
+//template<class Ty>
+//
+//Ty* FilesHelper::Search_all_data <Ty>(int id) {
+//
+//
+//	get_all_Admins();
+//	get_all_Employee();
+//	get_all_Clients();
+//
+//	int num = id;
+//	int temp = 0;
+//	while (num)
+//	{
+//
+//		temp = num % 10;
+//		num /= 10;
+//
+//	}
+//
+//	switch (temp)
+//	{
+//	case '1':
+//		for (auto& Admin : Admins) {
+//
+//			if (Admin.get_id() = id) {
+//
+//				return &Admin;
+//			}
+//		}
+//		
+//		return nullptr;
+//
+//	case '2':
+//		for (auto Employee : Employees) {
+//
+//			if (Employee.get_id() == id) {
+//
+//				return &Employee;
+//
+//			}
+//
+//		}
+//		return nullptr
+//
+//	case '3':
+//		for (auto& Client : clients) {
+//
+//			if (Client.get_id() == id){
+//
+//				return &Client;
+//			}
+//			
+//		}
+//
+//		return nullptr;
+//	}
+//	
+//}
