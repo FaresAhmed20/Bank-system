@@ -77,3 +77,87 @@ void IdGenerator::clientId()
     }
 
 }
+
+
+void IdGenerator::last_Admin_id(int& id) {
+
+    int count = 0, loops = 0, temp_last = id;
+    while (temp_last != 0)
+    {
+        int last_digit = temp_last % 10;
+        if (last_digit == 9)
+        {
+            count++;
+        }
+        temp_last /= 10;
+        loops++;
+
+    }
+    if (count == loops - 1)
+    {
+        id = 1 * pow(10, loops);
+
+
+    }
+    else
+    {
+        id++;
+    }
+
+}
+
+
+void IdGenerator::last_Employee_id(int& id) {
+
+    int count = 0, loops = 0, temp_last = id;
+    while (temp_last != 0)
+    {
+        int last_digit = temp_last % 10;
+        if (last_digit == 9)
+        {
+            count++;
+        }
+        temp_last /= 10;
+        loops++;
+
+    }
+    if (count == loops - 1)
+    {
+        id = 2 * pow(10, loops);
+
+
+    }
+    else
+    {
+        id++;
+    }
+
+}
+
+
+void IdGenerator::last_Client_id(int& id) {
+
+
+    int count = 0, loops = 0, temp_last = id;
+    while (temp_last != 0)
+    {
+        int last_digit = temp_last % 10;
+        if (last_digit == 9)
+        {
+            count++;
+        }
+        temp_last /= 10;
+        loops++;
+
+    }
+    if (count == loops - 1)
+    {
+        id = 3 * pow(10, loops);
+
+
+    }
+    else
+    {
+        id++;
+    }
+}
