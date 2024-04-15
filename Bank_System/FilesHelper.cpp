@@ -11,7 +11,7 @@ void FilesHelper::save_Client(Client &client) {
 	file2 >> last_id;
 	
 
-	Client_last_id(last_id);
+	IdGenerator::last_Client_id(last_id);
 
 	ofstream file("Client.txt", ios::app);
 
@@ -45,7 +45,7 @@ void FilesHelper::save_Employee(Employee &employee) {
 
 	file2 >> last_id;
 
-	Employee_last_id(last_id);
+	IdGenerator::last_Employee_id(last_id);
 
 	ofstream file("Employee.txt", ios::app); 
 
@@ -80,7 +80,7 @@ void FilesHelper::save_Admins(Admin &admin) {
 
 	file2 >> last_id;
 
-	Admin_last_id(last_id);
+	IdGenerator::last_Admin_id(last_id);
 
 
 	ofstream file("Admin.txt", ios::app);
@@ -272,89 +272,6 @@ Admin* FilesHelper::Admin_search(int id) {
 
 			return &Admin;
 		}
-	}
-}
-
-
-void FilesHelper::Client_last_id(int& id) {
-
-
-
-	int count = 0, loops = 0, temp = id;
-	while (temp)
-	{
-		int last_digit = temp % 10;
-		if (last_digit == 9)
-		{
-			count++;
-		}
-		temp /= 10;
-		loops++;
-
-	}
-	if (count == loops - 1)
-	{
-		id = 3 * pow(10, loops);
-
-
-	}
-	else
-	{
-		id++;
-	}
-}
-
-
-void FilesHelper::Employee_last_id(int& id) {
-
-	int count = 0, loops = 0, temp = id;
-	while (temp)
-	{
-		int last_digit = temp % 10;
-		if (last_digit == 9)
-		{
-			count++;
-		}
-		temp /= 10;
-		loops++;
-
-	}
-	if (count == loops - 1)
-	{
-		id = 3 * pow(10, loops);
-
-
-	}
-	else
-	{
-		id++;
-	}
-}
-
-
-void FilesHelper::Admin_last_id(int& id) {
-
-	int count = 0, loops = 0, temp = id;
-	while (temp)
-	{
-		int last_digit = temp % 10;
-		if (last_digit == 9)
-		{
-			count++;
-		}
-		temp /= 10;
-		loops++;
-
-	}
-	if (count == loops - 1)
-	{
-		id = 3 * pow(10, loops);
-
-
-	}
-	else
-	{
-		id++;
 	}
 }
 
