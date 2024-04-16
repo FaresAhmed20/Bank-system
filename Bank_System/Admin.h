@@ -50,4 +50,5 @@ public:
 
 };
 
+//the vector that stores the Admins data
 static vector<Admin> Admins;

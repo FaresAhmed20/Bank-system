@@ -8,7 +8,7 @@
 class Employee;
 class Admin;
 
-
+//the class that gets the data from the file and split it to a usfel data that can be stored in the vector
 class Parser
 {
 	static vector<string> split(string line);

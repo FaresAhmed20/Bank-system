@@ -2,6 +2,8 @@
 #include "cmath"
 
 
+
+//Admin_id Genrates a unique id for the Admin that start with '1' that make it more easy in the seacrch in the database
 void IdGenerator::adminId()
 {
     int count = 0, loops = 0, temp_admin_id = Admin::admin_count;
@@ -28,7 +30,7 @@ void IdGenerator::adminId()
         Admin::admin_count++;
     }
 }
-
+//Employee_id Genrates a unique id for the Employee that start with '2' that make it more easy in the seacrch in the database
 void IdGenerator::employeeId()
 {
     int count = 0, loops = 0, temp_employee_id = Employee::employee_count;
@@ -51,6 +53,8 @@ void IdGenerator::employeeId()
     }
 }
 
+
+//Client_id Genrates a unique id for the Client that start with '3' that make it more easy in the seacrch in the database
 void IdGenerator::clientId()
 {
     int count = 0, loops = 0, temp_client_id = Client::client_count;

@@ -11,7 +11,8 @@ using namespace std;
 
 
 
-
+//the class that gets the data from and in the files 
+//the only class that can access the files "Read and Write from the file"
 class FilesHelper
 {
 public:
@@ -27,7 +28,7 @@ public:
 	static Client* Client_search(int id);
 	static Employee* Employee_search(int id);
 	static Admin* Admin_search(int id);
-	/*template <class Ty>
-	static Ty* Search_all_data(int id);*/
+	template <class Ty>
+	static Ty* Search_all_data(int id);
 };
 

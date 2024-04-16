@@ -1,7 +1,11 @@
 #include "FilesHelper.h"
 
 
-
+//the save_Client function takes a Client by refrence and add it's  data to the csv files 
+//every client in a unique row and it's data is separated by a comma 
+//it start by opining the file then start writing the info of the client in it 
+//it start by cheking the next unique id that this Client will take the after that it start writing the data that the user just entered 
+// the Client.txt file is open in tha appened mode so that if the file not found it creat a new file 
 void FilesHelper::save_Client(Client &client) {
 
 	ifstream file2 ("Client_last_id.txt");
@@ -36,10 +40,14 @@ void FilesHelper::save_Client(Client &client) {
 
 
 
-
+//the save_Employee function takes a Employee by refrence and add it's  data to the csv files 
+//every Employee is put in a unique row and it's data is separated by a comma 
+//it start by opining the file then start writing the info of the Employee in it 
+//it start by cheking the next unique id that this Employee will take the after that it start writing the data that the user just entered 
+// the Employee.txt file is open in tha appened mode so that if the file not found it creat a new file 
 void FilesHelper::save_Employee(Employee &employee) {
 
-	ifstream file2("Employee_last_id.txt");
+	ifstream file2("Employee_last_id.txt" , ios::app);
 
 	int last_id;
 
@@ -71,7 +79,11 @@ void FilesHelper::save_Employee(Employee &employee) {
 }
 
 
-
+//the save_Admin function takes a Admin by refrence and add it's  data to the csv files 
+//every Admin in a unique row and it's data is separated by a comma 
+//it start by opining the file then start writing the info of the client in it 
+//it start by cheking the next unique id that this Admin will take the after that it start writing the data that the user just entered 
+// the Admin.txt file is open in tha appened mode so that if the file not found it creat a new file 
 void FilesHelper::save_Admins(Admin &admin) {
 
 	ifstream file2("Admin_last_id.txt");
@@ -113,7 +125,9 @@ void FilesHelper::save_Admins(Admin &admin) {
 }
 
 
-
+//the main function that reades every line of the file
+// and change it to a suitable kind of data that can be stored in the vector
+//then return it so it can be used
 void FilesHelper::get_all_Clients() {
 	
 	ifstream file;
@@ -125,7 +139,8 @@ void FilesHelper::get_all_Clients() {
 	else {
 
 		while(getline(file, line)) {
-			
+			//the Phaser_to_Client method takes every line in the csv file
+			//  and cut it and return the data to be stored
 			Client client = Parser::phaser_to_client(line);
 			clients.push_back(client);
 		}
@@ -139,6 +154,9 @@ void FilesHelper::get_all_Clients() {
 
 
 
+//the main function that reades every line of the Employee file
+// and change it to a suitable kind of data that can be stored in the vector
+//then return it so it can be used
 void FilesHelper::get_all_Employee() {
 
 	ifstream file;
@@ -151,7 +169,9 @@ void FilesHelper::get_all_Employee() {
 	else {
 		
 		while (getline(file, line)) {
-			
+
+			//the Phaser_to_Employee method takes every line in the csv file
+			//  and cut it and return the data to be stored
 			Employee employee = Parser::phasee_to_employee(line);
 			Employees.push_back(employee);
 		}
@@ -166,6 +186,9 @@ void FilesHelper::get_all_Employee() {
 
 
 
+//the main function that reades every line of the Admin file
+// and change it to a suitable kind of data that can be stored in the vector
+//then return it so it can be used
 void FilesHelper::get_all_Admins() {
 
 	ifstream file;
@@ -180,8 +203,8 @@ void FilesHelper::get_all_Admins() {
 
 		while (getline(file, line)) {
 
-			
-
+			//the Phaser_to_Admin method takes every line in the csv file
+			//  and cut it and return the data to be stored
 			Admin admin = Parser::phaser_to_admin(line);
 			Admins.push_back(admin);
 
@@ -191,7 +214,8 @@ void FilesHelper::get_all_Admins() {
 	}
 }
 
-
+//the Desplay_Client function first call the the get_all_Client to store the data in the vector 
+// then call the display_info for every client in the vector to print it's unique info
 void FilesHelper::desplay_all_clients() {
 
 	get_all_Clients();
@@ -204,7 +228,8 @@ void FilesHelper::desplay_all_clients() {
 	exit;
 }
 
-
+//the Desplay_Employee function first call the the get_all_Client to store the data in the vector 
+// then call the display_info for every Employee in the vector to print it's unique info
 void FilesHelper::desplay_all_employee() {
 
 	for (auto& employee : Employees) {
@@ -215,7 +240,8 @@ void FilesHelper::desplay_all_employee() {
 }
 
 
-
+//the Desplay_Admin function first call the the get_all_Client to store the data in the vector 
+// then call the display_info for every Admin in the vector to print it's unique info
 void FilesHelper::desplay_all_admins() {
 
 	for (auto& admin : Admins) {
@@ -225,7 +251,10 @@ void FilesHelper::desplay_all_admins() {
 	}
 }
 
-
+//the Client_Search function used to search in the database for a spacific client 
+//using the unique id that the client have "it's start by calling the get_all_Client functin to be sure 
+//that all the data place in the vector then by using the auto pointer start searching for the client 
+// if the client found it return it's data if not it return nullptr
 Client* FilesHelper::Client_search(int id) {
 
 	
@@ -244,7 +273,10 @@ Client* FilesHelper::Client_search(int id) {
 	
 }
 
-
+//the Employee_Search function used to search in the database for a spacific Employee 
+//using the unique id that the Employee have "it's start by calling the get_all_Employee functin to be sure 
+//that all the data place in the vector then by using the auto pointer start searching for the Employee 
+// if the Employee found it return it's data if not it return nullptr
 Employee* FilesHelper::Employee_search(int id) {
 
 	get_all_Employee();
@@ -261,7 +293,10 @@ Employee* FilesHelper::Employee_search(int id) {
 	return NULL;
 }
 
-
+//the Admin_Search function used to search in the database for a spacific Admin 
+//using the unique id that the client have "it's start by calling the get_all_Client functin to be sure 
+//that all the data place in the vector then by using the auto pointer start searching for the Admin 
+// if the Admin found it return it's data if not it return nullptr
 Admin* FilesHelper::Admin_search(int id) {
 
 	get_all_Admins();
@@ -276,63 +311,71 @@ Admin* FilesHelper::Admin_search(int id) {
 }
 
 
-//
-//
-//template<class Ty>
-//
-//Ty* FilesHelper::Search_all_data <Ty>(int id) {
-//
-//
-//	get_all_Admins();
-//	get_all_Employee();
-//	get_all_Clients();
-//
-//	int num = id;
-//	int temp = 0;
-//	while (num)
-//	{
-//
-//		temp = num % 10;
-//		num /= 10;
-//
-//	}
-//
-//	switch (temp)
-//	{
-//	case '1':
-//		for (auto& Admin : Admins) {
-//
-//			if (Admin.get_id() = id) {
-//
-//				return &Admin;
-//			}
-//		}
-//		
-//		return nullptr;
-//
-//	case '2':
-//		for (auto Employee : Employees) {
-//
-//			if (Employee.get_id() == id) {
-//
-//				return &Employee;
-//
-//			}
-//
-//		}
-//		return nullptr
-//
-//	case '3':
-//		for (auto& Client : clients) {
-//
-//			if (Client.get_id() == id){
-//
-//				return &Client;
-//			}
-//			
-//		}
-//
-//		return nullptr;
-//	}
-//	
-//}
+
+//search_all_data function used to search the three types of information in one function usinng templata
+//it first get all the data of the Client , Employee and Admin's in the vector 
+// then check the for the id type and search in the vector for that spacific id 
+// if the id found in the searched vector it return the owner's data otherwise it return nullptr
+template<class Ty>
+Ty* FilesHelper::Search_all_data(int id) {
+
+
+	get_all_Admins();
+	get_all_Employee();
+	get_all_Clients();
+
+	int num = id;
+	int temp = 0;
+	while (num)
+	{
+
+		temp = num % 10;
+		num /= 10;
+
+	}
+
+	if (temp == 1) {
+
+		for (auto& Admin : Admins) {
+
+			if (Admin.get_id() == id) {
+				
+
+				return &Admin;
+
+			}
+
+			return nullptr;
+		}
+
+
+	}
+	else if (temp == 2) {
+
+
+		for (auto& Employee : Employees) {
+
+			if (Employee.get_id() == id) {
+
+				return &Employee;
+
+			}
+
+		}
+		return nullptr;
+
+	}
+	else {
+
+		for (auto& Client : clients) {
+
+			if (Client.get_id() == clients) {
+
+				return &Client;
+			}
+
+		}
+		return nullptr;
+	}
+	
+}

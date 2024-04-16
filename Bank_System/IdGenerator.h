@@ -2,6 +2,11 @@
 #include "Admin.h"
 #include "Employee.h"
 #include "Client.h"
+
+
+
+
+//the IdGenerator generate an unique id to every Client , Employee , Admin that uses the system
 class IdGenerator
 {
 public:

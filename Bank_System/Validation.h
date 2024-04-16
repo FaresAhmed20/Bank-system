@@ -4,6 +4,10 @@
 #include <string>
 using namespace std;
 
+
+
+
+//the validation class is the class that contain all the rules that the user must follow to enter it's data 
 class Validation
 {
 

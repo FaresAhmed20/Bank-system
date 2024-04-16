@@ -1,23 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Bank_System"
+    "\\Bank_System",
+    "\\x64"
   ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "SelectedNode": "\\Bank_System\\Client.cpp",
-=======
-  "SelectedNode": "\\Bank_System\\FilesHelper.cpp",
->>>>>>> f
-=======
-<<<<<<< HEAD
-  "SelectedNode": "\\Bank_System\\FilesHelper.cpp",
-=======
-  "SelectedNode": "\\Bank_System\\FileManager.cpp",
->>>>>>> another_f
-=======
-  "SelectedNode": "\\Bank_System\\FileManager.h",
->>>>>>> another_f
->>>>>>> f
+  "SelectedNode": "\\Bank_System\\DataSourceInterface.h",
   "PreviewInSolutionExplorer": false
 }
