@@ -11,7 +11,7 @@ using namespace std;
 
 
 
-
+//the class that mange the data in the csv files
 class FileManager 
 {
 public:

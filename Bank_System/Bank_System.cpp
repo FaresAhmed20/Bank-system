@@ -12,8 +12,10 @@ int main() {
 
     
     Admin d;
+    Employee s;
 
-    d.Employee_search(201);
+    d.list_clients();
+    
 
     //test
     /*for (int i = 1; i <= 150; i++)

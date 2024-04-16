@@ -11,7 +11,7 @@ class Admin;
 class DataSourceInterface
 {
 
-
+	//Abstracted class that inhearet the methode to the file helper class and the file manger
 	virtual void add_Client(Client& client) = 0;
 	virtual void add_Employee(Employee& employee) = 0;
 	virtual void add_Admin(Admin& admin) = 0;

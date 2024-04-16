@@ -3,15 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\",
   "Documents": [
     {
-<<<<<<< HEAD
-=======
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bank_System\\Admin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\DataSourceInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bank_System\\DataSourceInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
->>>>>>> f
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Validation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bank_System\\Validation.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FilesHelper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Bank_System\\FilesHelper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,11 +17,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-<<<<<<< HEAD
-          "DockedWidth": 285,
-=======
           "DockedWidth": 200,
->>>>>>> f
           "SelectedChildIndex": 3,
           "Children": [
             {
@@ -42,35 +35,28 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-<<<<<<< HEAD
-=======
-              "Title": "Admin.h",
-              "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.h",
-              "RelativeDocumentMoniker": "Bank_System\\Admin.h",
-              "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.h",
-              "RelativeToolTip": "Bank_System\\Admin.h",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "DataSourceInterface.h",
+              "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\DataSourceInterface.h",
+              "RelativeDocumentMoniker": "Bank_System\\DataSourceInterface.h",
+              "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\DataSourceInterface.h",
+              "RelativeToolTip": "Bank_System\\DataSourceInterface.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-10T01:57:56.094Z",
+              "WhenOpened": "2024-04-16T01:03:01.31Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
->>>>>>> f
-              "Title": "Validation.cpp",
-              "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Validation.cpp",
-              "RelativeDocumentMoniker": "Bank_System\\Validation.cpp",
-              "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Validation.cpp",
-              "RelativeToolTip": "Bank_System\\Validation.cpp",
+              "Title": "FilesHelper.cpp",
+              "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FilesHelper.cpp",
+              "RelativeDocumentMoniker": "Bank_System\\FilesHelper.cpp",
+              "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FilesHelper.cpp",
+              "RelativeToolTip": "Bank_System\\FilesHelper.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-<<<<<<< HEAD
-              "WhenOpened": "2024-04-07T15:03:15.058Z",
+              "WhenOpened": "2024-04-16T01:02:14.911Z",
               "EditorCaption": ""
-=======
-              "WhenOpened": "2024-04-10T01:57:52.718Z"
->>>>>>> f
             }
           ]
         },

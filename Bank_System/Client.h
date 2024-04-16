@@ -43,5 +43,7 @@ public:
     void display_info();
 };
 
+
+//the vector that stores the Client data
 static vector<Client> clients;
 static vector<Client>::iterator it;

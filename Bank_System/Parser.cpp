@@ -1,6 +1,10 @@
 #include "Parser.h"
 
 
+
+//the split function that gets the line from the csv and split it to  a useful data 
+//the function cuts the data at every comma and store it in the data vector 
+//since the comma that split the parameter from each other 
 vector<string> Parser::split(string line) {
 
 	stringstream linee (line);
@@ -16,7 +20,8 @@ vector<string> Parser::split(string line) {
 }
 
 
-
+//the phaser_to_client method send every line to the split method and take the return from the method and store it in 
+//the right sequance that can be strored and accessed in the main vector
 Client Parser::phaser_to_client(string line) {
 
 	vector<string>data = split(line);
@@ -35,7 +40,8 @@ Client Parser::phaser_to_client(string line) {
 }
 
 
-
+//the phaser_to_Employee method send every line to the split method and take the return from the method and store it in 
+//the right sequance that can be strored and accessed in the main vector
 Employee Parser::phasee_to_employee(string line) {
 
 	vector<string> data = split(line);
@@ -51,7 +57,8 @@ Employee Parser::phasee_to_employee(string line) {
 }
 
 
-
+//the phaser_to_Admin method send every line to the split method and take the return from the method and store it in 
+//the right sequance that can be strored and accessed in the main vector
 Admin Parser::phaser_to_admin(string line) {
 
 

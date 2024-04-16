@@ -90,10 +90,21 @@ void Employee::list_clients() {
 }
 
 
-
+//the Client_search access the csv file from the FileMangeer class and search of the data there 
 void Employee::Client_search(int id) {
 
-    FileManager::Client_search(id);
+
+    if (FileManager::Search_all_data<Client>(id) != nullptr) {
+        
+        cout << "The Client information is : " << endl;
+        FileManager::Search_all_data<Client>(id)->display_info();
+
+    }
+    else {
+        cout << "the Client is not found in the data base " << endl;
+    }
+        
+
 }
 
 
