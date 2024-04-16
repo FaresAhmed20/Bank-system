@@ -14,7 +14,7 @@ int main() {
     Admin d;
     Employee s;
 
-    d.list_clients();
+    s.Client_search(301);
     
 
     //test
