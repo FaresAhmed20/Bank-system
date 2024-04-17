@@ -11,7 +11,7 @@ private:
 	int salary;
 
 public:
-	static int admin_count;
+	
     int admin_id;
 
     //default constructor
@@ -26,6 +26,7 @@ public:
     //setters
     void set_salary(int salary);
 
+    void set_id(int admin_id);
  
 
     //getters

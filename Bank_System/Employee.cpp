@@ -6,8 +6,9 @@
 Employee::Employee()
 {
 
-    IdGenerator::employeeId();
-    employee_id = employee_count;
+    int id;
+    IdGenerator::last_Employee_id(id);
+    employee_id = id;
 }
 
 Employee::Employee(string name, string password, int salary)
@@ -17,13 +18,24 @@ Employee::Employee(string name, string password, int salary)
     set_name(name);
     set_password(password);
     set_salary(salary);
-    IdGenerator::employeeId();
-    employee_id = employee_count;
+
+    int id;
+    IdGenerator::last_Employee_id(id);
+    employee_id = id;
 
 
 }
 
 //setters
+
+
+void Employee::set_id(int employee_id)
+{
+    Employee::employee_id = employee_id;
+}
+
+
+
 
 void Employee::set_salary(int salary) {
 
@@ -60,7 +72,7 @@ int Employee::get_id()
 void Employee::display_info()
 {
     cout << "Name: " << name << endl
-        << "You'r unique ID is : " << employee_id << endl
+        << "Your unique ID is : " << employee_id << endl
         << "Password: " << password << endl
         << "Salary: " << salary << endl;
 }
@@ -86,23 +98,23 @@ void Employee::Get_All_Clients() {
 
 void Employee::list_clients() {
 
-    FilesHelper::desplay_all_clients();
+    FilesHelper::display_all_clients();
 }
 
 
-//the Client_search access the csv file from the FileMangeer class and search of the data there 
+//the Client_search access the csv file from the FileManger class and search of the data there 
 void Employee::Client_search(int id) {
 
 
-    if (FileManager::Search_all_data<Client>(id) != nullptr) {
-        
-        cout << "The Client information is : " << endl;
-        FileManager::Search_all_data<Client>(id)->display_info();
+    //if (FileManager::Search_all_data<Client>(id) != nullptr) {
+    //    
+    //    cout << "The Client information is : " << endl;
+    //    FileManager::Search_all_data<Client>(id)->display_info();
 
-    }
-    else {
-        cout << "the Client is not found in the data base " << endl;
-    }
+    //}
+    //else {
+    //    cout << "the Client is not found in the data base " << endl;
+    //}
         
 
 }
@@ -111,4 +123,3 @@ void Employee::Client_search(int id) {
 
 
 
-int Employee::employee_count = 200;

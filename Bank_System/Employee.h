@@ -16,8 +16,6 @@ class Employee : public Person  {
 protected:
     int salary;
 public:
-    
-    static int employee_count;
     int employee_id;
 
     //default constructor
@@ -28,6 +26,7 @@ public:
 
     //setters
     void set_salary(int salary);
+    void set_id(int id);
 
     //getters
     double get_salary();

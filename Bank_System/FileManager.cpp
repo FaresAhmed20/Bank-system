@@ -1,7 +1,7 @@
 #include "FileManager.h"
 
 
-//Add_Client method gets the data from the user and add it to the darabase
+//Add_Client method gets the data from the user and add it to the database
 void FileManager::add_Client(Client &client) {
 	
 
@@ -19,13 +19,13 @@ void FileManager::add_Client(Client &client) {
 	cin >> balance;
 	client.set_balance(balance);
 
-	//Save_Client the methode that saves the client info into the csv file
+	//Save_Client the method that saves the client info into the csv file
 	FilesHelper::save_Client(client);
 	
 }
 
 
-//Add_Employee method gets the data from the user and add it to the darabase
+//Add_Employee method gets the data from the user and add it to the database
 void FileManager::add_Employee(Employee& employee) {
 
 
@@ -42,13 +42,13 @@ void FileManager::add_Employee(Employee& employee) {
 	cin >> salary;
 	employee.set_salary(salary);
 
-	//Save_Employee the methode that saves the client info into the csv file
+	//Save_Employee the method that saves the client info into the csv file
 	FilesHelper::save_Employee(employee);
 
 }
 
 
-//Add_Admin method gets the data from the user and add it to the darabase
+//Add_Admin method gets the data from the user and add it to the database
 void FileManager::add_Admin(Admin &admin) {
 
 	string name, pass;
@@ -64,7 +64,7 @@ void FileManager::add_Admin(Admin &admin) {
 	cin >> salary;
 	admin.set_salary(salary);
 
-	//Save_Admin the methode that saves the client info into the csv file
+	//Save_Admin the method that saves the client info into the csv file
 	FilesHelper::save_Admins(admin);
 
 }

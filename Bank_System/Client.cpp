@@ -6,8 +6,9 @@
 //constructor
 Client::Client() 
 {
-    IdGenerator::clientId();
-    client_id = client_count;
+    int id;
+    IdGenerator::last_Client_id(id);
+    client_id = id;
 
 }
 
@@ -16,13 +17,23 @@ Client::Client(string name, string password, double balance)
     : Person(name, password), balance(balance)
 {
     set_balance(balance);
-    IdGenerator::clientId();
-    client_id = client_count;
+
+    int id;
+    IdGenerator::last_Client_id(id);
+    client_id = id;
 
 
 }
 
 //setters
+
+void Client::set_id(int client_id)
+{
+    Client::client_id = client_id;
+}
+
+
+
 void Client::set_balance(double balance) {
 
     while (true)
@@ -45,17 +56,6 @@ void Client::set_balance(double balance) {
 
 
 }
-
-
-
-void Client::set_id(int id) {
-
-    IdGenerator::clientId();
-    client_id = client_count;
-
-}
-
-
 
 //getters
 double Client::get_balance()
@@ -131,4 +131,3 @@ void Client::display_info()
         << "Balance: " << balance << endl;
 }
 
-int Client::client_count = 300;

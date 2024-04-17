@@ -1,21 +1,18 @@
 #include "FilesHelper.h"
 
 
-//the save_Client function takes a Client by refrence and add it's  data to the csv files 
+//the save_Client function takes a Client by reference and add it's  data to the csv files 
 //every client in a unique row and it's data is separated by a comma 
 //it start by opining the file then start writing the info of the client in it 
-//it start by cheking the next unique id that this Client will take the after that it start writing the data that the user just entered 
-// the Client.txt file is open in tha appened mode so that if the file not found it creat a new file 
+//it start by checking the next unique id that this Client will take the after that it start writing the data that the user just entered 
+// the Client.txt file is open in tha append mode so that if the file not found it creat a new file 
 void FilesHelper::save_Client(Client &client) {
 
-	ifstream file2 ("Client_last_id.txt");
-
-	int last_id;
-
-	file2 >> last_id;
 	
 
+	int last_id; 
 	IdGenerator::last_Client_id(last_id);
+
 
 	ofstream file("Client.txt", ios::app);
 
@@ -26,11 +23,10 @@ void FilesHelper::save_Client(Client &client) {
 		
 		file << client.get_name() << "," 
 			<< last_id << ',' 
-			<< client.get_password() 
-			<< ',' << client.get_balance()<<'\n';
+			<< client.get_password() << ','
+			<< client.get_balance()<<'\n';
 		file.close();
 	}
-
 
 	ofstream file3("Client_last_id.txt");
 
@@ -40,20 +36,19 @@ void FilesHelper::save_Client(Client &client) {
 
 
 
-//the save_Employee function takes a Employee by refrence and add it's  data to the csv files 
+//the save_Employee function takes a Employee by reference and add it's  data to the csv files 
 //every Employee is put in a unique row and it's data is separated by a comma 
 //it start by opining the file then start writing the info of the Employee in it 
-//it start by cheking the next unique id that this Employee will take the after that it start writing the data that the user just entered 
-// the Employee.txt file is open in tha appened mode so that if the file not found it creat a new file 
+//it start by checking the next unique id that this Employee will take the after that it start writing the data that the user just entered 
+// the Employee.txt file is open in tha append mode so that if the file not found it creat a new file 
 void FilesHelper::save_Employee(Employee &employee) {
 
-	ifstream file2("Employee_last_id.txt" , ios::app);
+	
 
 	int last_id;
-
-	file2 >> last_id;
-
 	IdGenerator::last_Employee_id(last_id);
+
+
 
 	ofstream file("Employee.txt", ios::app); 
 
@@ -71,7 +66,6 @@ void FilesHelper::save_Employee(Employee &employee) {
 			file.close();
 		}
 
-
 		ofstream file3("Employee_last_id.txt");
 
 		file3 << last_id;
@@ -79,19 +73,15 @@ void FilesHelper::save_Employee(Employee &employee) {
 }
 
 
-//the save_Admin function takes a Admin by refrence and add it's  data to the csv files 
+//the save_Admin function takes a Admin by reference and add it's  data to the csv files 
 //every Admin in a unique row and it's data is separated by a comma 
 //it start by opining the file then start writing the info of the client in it 
-//it start by cheking the next unique id that this Admin will take the after that it start writing the data that the user just entered 
-// the Admin.txt file is open in tha appened mode so that if the file not found it creat a new file 
+//it start by checking the next unique id that this Admin will take the after that it start writing the data that the user just entered 
+// the Admin.txt file is open in tha append mode so that if the file not found it creat a new file 
 void FilesHelper::save_Admins(Admin &admin) {
 
-	ifstream file2("Admin_last_id.txt");
 	
 	int last_id;
-
-	file2 >> last_id;
-
 	IdGenerator::last_Admin_id(last_id);
 
 
@@ -119,13 +109,12 @@ void FilesHelper::save_Admins(Admin &admin) {
 	ofstream file3("Admin_last_id.txt");
 
 	file3 << last_id;
-
 	file3.close();
 
 }
 
 
-//the main function that reades every line of the file
+//the main function that reads every line of the file
 // and change it to a suitable kind of data that can be stored in the vector
 //then return it so it can be used
 void FilesHelper::get_all_Clients() {
@@ -154,7 +143,7 @@ void FilesHelper::get_all_Clients() {
 
 
 
-//the main function that reades every line of the Employee file
+//the main function that reads every line of the Employee file
 // and change it to a suitable kind of data that can be stored in the vector
 //then return it so it can be used
 void FilesHelper::get_all_Employee() {
@@ -172,21 +161,17 @@ void FilesHelper::get_all_Employee() {
 
 			//the Phaser_to_Employee method takes every line in the csv file
 			//  and cut it and return the data to be stored
-			Employee employee = Parser::phasee_to_employee(line);
+			Employee employee = Parser::phaser_to_employee(line);
 			Employees.push_back(employee);
 		}
 		file.close();
 		
 	}
-
-	for (auto& s : Employees) {
-		 s;
-	}
 }
 
 
 
-//the main function that reades every line of the Admin file
+//the main function that reads every line of the Admin file
 // and change it to a suitable kind of data that can be stored in the vector
 //then return it so it can be used
 void FilesHelper::get_all_Admins() {
@@ -214,9 +199,9 @@ void FilesHelper::get_all_Admins() {
 	}
 }
 
-//the Desplay_Client function first call the the get_all_Client to store the data in the vector 
+//the Display_Client function first call the the get_all_Client to store the data in the vector 
 // then call the display_info for every client in the vector to print it's unique info
-void FilesHelper::desplay_all_clients() {
+void FilesHelper::display_all_clients() {
 
 	get_all_Clients();
 
@@ -228,9 +213,11 @@ void FilesHelper::desplay_all_clients() {
 	exit;
 }
 
-//the Desplay_Employee function first call the the get_all_Client to store the data in the vector 
+//the Display_Employee function first call the the get_all_Client to store the data in the vector 
 // then call the display_info for every Employee in the vector to print it's unique info
-void FilesHelper::desplay_all_employee() {
+void FilesHelper::display_all_employee() {
+
+	get_all_Employee();
 
 	for (auto& employee : Employees) {
 
@@ -240,9 +227,11 @@ void FilesHelper::desplay_all_employee() {
 }
 
 
-//the Desplay_Admin function first call the the get_all_Client to store the data in the vector 
+//the Display_Admin function first call the the get_all_Client to store the data in the vector 
 // then call the display_info for every Admin in the vector to print it's unique info
-void FilesHelper::desplay_all_admins() {
+void FilesHelper::display_all_admins() {
+
+	get_all_Admins();
 
 	for (auto& admin : Admins) {
 
@@ -251,8 +240,8 @@ void FilesHelper::desplay_all_admins() {
 	}
 }
 
-//the Client_Search function used to search in the database for a spacific client 
-//using the unique id that the client have "it's start by calling the get_all_Client functin to be sure 
+//the Client_Search function used to search in the database for a specific client 
+//using the unique id that the client have "it's start by calling the get_all_Client function to be sure 
 //that all the data place in the vector then by using the auto pointer start searching for the client 
 // if the client found it return it's data if not it return nullptr
 Client* FilesHelper::Client_search(int id) {
@@ -273,8 +262,8 @@ Client* FilesHelper::Client_search(int id) {
 	
 }
 
-//the Employee_Search function used to search in the database for a spacific Employee 
-//using the unique id that the Employee have "it's start by calling the get_all_Employee functin to be sure 
+//the Employee_Search function used to search in the database for a specific Employee 
+//using the unique id that the Employee have "it's start by calling the get_all_Employee function to be sure 
 //that all the data place in the vector then by using the auto pointer start searching for the Employee 
 // if the Employee found it return it's data if not it return nullptr
 Employee* FilesHelper::Employee_search(int id) {

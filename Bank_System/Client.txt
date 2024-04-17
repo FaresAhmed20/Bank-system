@@ -1,2 +1,2 @@
-fares,301,farees@2020,5000
-menna,302,menna@30,9000
+fares,301,fares@2012,7000
+omarsa,302,omarrrr,7000

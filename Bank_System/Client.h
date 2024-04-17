@@ -16,7 +16,6 @@ private:
     double balance;
 
 public:
-    static int client_count;
     int client_id;
 
     //default constructor
@@ -27,7 +26,7 @@ public:
 
     //setters
     void set_balance(double balance);
-    void set_id(int id);
+    void set_id(int lient_id);
 
     //getters
     double get_balance();

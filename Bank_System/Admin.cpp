@@ -5,9 +5,9 @@
 Admin::Admin()
 {
 
-    IdGenerator::adminId();
-    admin_id = admin_count;
-
+    int id;
+    IdGenerator::last_Admin_id(id);
+    admin_id = id;
 
 
 }
@@ -21,15 +21,23 @@ Admin::Admin(string name, string password, int salary)
     set_name(name);
     set_password(password);
     set_salary(salary);
-    IdGenerator::adminId();
-    admin_id = admin_count;
 
-    
-
+    int id;
+    IdGenerator::last_Admin_id(id);
+    admin_id = id;
 
 }
 
 //setters
+
+
+void Admin::set_id(int admin_id) {
+
+    Admin::admin_id = admin_id;
+}
+
+
+
 void Admin::set_salary(int salary) {
 
     while (true) {
@@ -64,7 +72,7 @@ int Admin::get_id()
 void Admin::display_info()
 {
     cout << "Name: " << name << endl
-        << "You'r unique ID is : " << admin_id << endl
+        << "Your unique ID is : " << admin_id << endl
         << "Password: " << password << endl
         << "Salary: " << salary << endl;
 }
@@ -73,9 +81,7 @@ void Admin::display_info()
 
 void Admin::add_Client(Client& client) {
 
-
     FileManager::add_Client(client);
-
 }
 
 
@@ -87,14 +93,12 @@ void Admin::add_Employee(Employee& employee) {
 
 void Admin::list_clients() {
 
-    FilesHelper::get_all_Clients();
-    FilesHelper::desplay_all_clients();
+    FilesHelper::display_all_clients();
 }
 
 void Admin::list_Employee() {
 
-    FilesHelper::get_all_Employee();
-    FilesHelper::desplay_all_employee();
+    FilesHelper::display_all_employee();
 }
 
 
@@ -112,4 +116,4 @@ void Admin::Employee_search(int id) {
 
 
 
-int Admin::admin_count = 100;
+

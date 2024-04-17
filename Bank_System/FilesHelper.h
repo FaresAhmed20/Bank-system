@@ -22,9 +22,9 @@ public:
 	static void get_all_Clients();
 	static void get_all_Employee();
 	static void get_all_Admins();
-	static void desplay_all_clients();
-	static void desplay_all_employee();
-	static void desplay_all_admins();
+	static void display_all_clients();
+	static void display_all_employee();
+	static void display_all_admins();
 	static Client* Client_search(int id);
 	static Employee* Employee_search(int id);
 	static Admin* Admin_search(int id);

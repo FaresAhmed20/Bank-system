@@ -9,13 +9,14 @@ using namespace std;
 
 int main() {
 
-
-    
-    Admin d;
     Employee s;
+    Admin m;
+    Client f;
 
-    d.list_clients();
+    s.list_clients();
     
+
+
 
     //test
     /*for (int i = 1; i <= 150; i++)
