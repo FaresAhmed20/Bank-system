@@ -32,9 +32,8 @@ void FilesHelper::save_Client(Client &client) {
 
 	file3 << last_id;
 	file3.close();
+	return;
 }
-
-
 
 //the save_Employee function takes a Employee by reference and add it's  data to the csv files 
 //every Employee is put in a unique row and it's data is separated by a comma 
@@ -71,7 +70,6 @@ void FilesHelper::save_Employee(Employee &employee) {
 		file3 << last_id;
 		file3.close();
 }
-
 
 //the save_Admin function takes a Admin by reference and add it's  data to the csv files 
 //every Admin in a unique row and it's data is separated by a comma 
@@ -113,7 +111,6 @@ void FilesHelper::save_Admins(Admin &admin) {
 
 }
 
-
 //the main function that reads every line of the file
 // and change it to a suitable kind of data that can be stored in the vector
 //then return it so it can be used
@@ -140,9 +137,6 @@ void FilesHelper::get_all_Clients() {
 
 }
 
-
-
-
 //the main function that reads every line of the Employee file
 // and change it to a suitable kind of data that can be stored in the vector
 //then return it so it can be used
@@ -168,8 +162,6 @@ void FilesHelper::get_all_Employee() {
 		
 	}
 }
-
-
 
 //the main function that reads every line of the Admin file
 // and change it to a suitable kind of data that can be stored in the vector
@@ -282,8 +274,8 @@ Employee* FilesHelper::Employee_search(int id) {
 	return NULL;
 }
 
-//the Admin_Search function used to search in the database for a spacific Admin 
-//using the unique id that the client have "it's start by calling the get_all_Client functin to be sure 
+//the Admin_Search function used to search in the database for a specific Admin 
+//using the unique id that the client have "it's start by calling the get_all_Client function to be sure 
 //that all the data place in the vector then by using the auto pointer start searching for the Admin 
 // if the Admin found it return it's data if not it return nullptr
 Admin* FilesHelper::Admin_search(int id) {
@@ -299,11 +291,9 @@ Admin* FilesHelper::Admin_search(int id) {
 	}
 }
 
-
-
-//search_all_data function used to search the three types of information in one function usinng templata
+//search_all_data function used to search the three types of information in one function using template
 //it first get all the data of the Client , Employee and Admin's in the vector 
-// then check the for the id type and search in the vector for that spacific id 
+// then check the for the id type and search in the vector for that specific id 
 // if the id found in the searched vector it return the owner's data otherwise it return nullptr
 template<class Ty>
 Ty* FilesHelper::Search_all_data(int id) {
@@ -367,4 +357,118 @@ Ty* FilesHelper::Search_all_data(int id) {
 		return nullptr;
 	}
 	
+}
+
+//The Clear_Files method takes two file name and clear the data inside them 
+void FilesHelper::Clear_Files(string filename, string FileName) {
+	
+	fstream file1, file2;
+	file1.open(filename, ios::out);
+	file1.close();
+	
+	if (FileName[0] == 'C') {
+
+		file2.open(FileName, ios::out);
+		file2 << 300;
+		file2.close();
+		
+
+	}
+	else if (FileName[0] == 'E') {
+
+		file2.open(FileName, ios::out);
+		file2 << 200;
+		file2.close();
+
+
+	}
+	else {
+
+		file2.open(FileName, ios::out);
+		file2 << 100;
+		file2.close();
+
+	}
+	return;
+}
+
+//The Update_Client takes the id of the client that it's data have been updated and Renters it in the database 
+void FilesHelper::Update_Client(int id) {
+
+
+	ifstream file("Client.txt");
+
+	ofstream temp_file("Temp_Client.txt", ios::out);
+
+	string line;
+
+
+	int currentLine = 301;
+	while (getline(file, line))
+	{
+		if (currentLine != id)
+		{
+			temp_file << line << endl;
+
+		}
+		else
+		{
+			temp_file << FileManager::Client_search(id)->get_name() << ","
+				<< FileManager::Client_search(id)->get_id() << ","
+				<< FileManager::Client_search(id)->get_password() << ","
+				<< FileManager::Client_search(id)->get_balance() << endl;
+		}
+
+		IdGenerator::current_Line_Generator(currentLine);
+	}
+
+	file.close();
+	temp_file.close();
+
+	string fileName = "Client.txt";
+
+
+	remove(fileName.c_str());
+	rename("Temp_Client.txt", fileName.c_str());
+}
+
+//The Update_Employee takes the id of the Employee that it's data have been updated and Renters it in the database
+void FilesHelper::Update_Employee(int id) {
+
+	ifstream file("Employee.txt");
+
+	ofstream temp_file("Temp_Employee.txt", ios::out);
+
+	string line;
+
+
+	int currentLine = 201;
+	while (getline(file, line))
+	{
+		if (currentLine != id)
+		{
+			temp_file << line << endl;
+
+		}
+		else
+		{
+			temp_file << FileManager::Employee_search(id)->get_name() << ","
+				<< FileManager::Employee_search(id)->get_id() << ","
+				<< FileManager::Employee_search(id)->get_password() << ","
+				<< FileManager::Employee_search(id)->get_salary() << endl;
+		}
+
+		IdGenerator::current_Line_Generator(currentLine);
+
+
+	}
+
+	file.close();
+	temp_file.close();
+
+	string fileName = "Employee.txt";
+
+
+	remove(fileName.c_str());
+	rename("Temp_Employee.txt", fileName.c_str());
 }

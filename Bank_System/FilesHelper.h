@@ -30,5 +30,8 @@ public:
 	static Admin* Admin_search(int id);
 	template <class Ty>
 	static Ty* Search_all_data(int id);
+	static void Clear_Files(string filename, string FileName);
+	static void Update_Client(int id);
+	static void Update_Employee(int id);
 };
 

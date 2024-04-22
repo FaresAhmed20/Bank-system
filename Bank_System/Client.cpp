@@ -9,7 +9,7 @@ Client::Client()
     int id;
     IdGenerator::last_Client_id(id);
     client_id = id;
-
+    
 }
 
 
@@ -72,18 +72,19 @@ int Client::get_id()
 
 //method
 
+//The set_deposit used to add money to the Clients account 
 void Client::set_deposit(const double amount)
 {
-
     balance += amount;
-
 }
 
+//The set_withdraw used to withdraw the money from the user account
 void Client::set_withdraw(const double amount)
 {
     balance -= amount;
 }
 
+//The transfer_to used to transfer the data between two accounts
 void Client::transfer_to(double amount, Client& recipient)
 {
 
@@ -94,7 +95,7 @@ void Client::transfer_to(double amount, Client& recipient)
         {
             set_withdraw(amount);
             recipient.set_deposit(amount);
-            cout << "Amount transfer sacssefuly"<<endl;
+            cout << "Amount transfer successfully"<<endl;
             return;
 
         }
@@ -122,6 +123,7 @@ void Client::transfer_to(double amount, Client& recipient)
 
 }
 
+//The display_info used to display thee information of the Client
 void Client::display_info()
 {
 

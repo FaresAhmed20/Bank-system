@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Bank_System",
+    "\\Bank_System\\x64",
     "\\x64"
   ],
-  "SelectedNode": "\\Bank_System\\IdGenerator.cpp",
+  "SelectedNode": "\\Bank_System\\Bank_System.cpp",
   "PreviewInSolutionExplorer": false
 }

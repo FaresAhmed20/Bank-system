@@ -30,13 +30,10 @@ Admin::Admin(string name, string password, int salary)
 
 //setters
 
-
 void Admin::set_id(int admin_id) {
 
     Admin::admin_id = admin_id;
 }
-
-
 
 void Admin::set_salary(int salary) {
 
@@ -69,6 +66,8 @@ int Admin::get_id()
 }
 
 //methods
+
+//The display_info method used display the information of the Amins
 void Admin::display_info()
 {
     cout << "Name: " << name << endl
@@ -77,43 +76,176 @@ void Admin::display_info()
         << "Salary: " << salary << endl;
 }
 
-
-
+//the add_Client method takes a client type object by reference add take all it's information from the user and add it to the database
 void Admin::add_Client(Client& client) {
 
     FileManager::add_Client(client);
 }
-
-
+//the add_Employee method takes a Employee type object by reference add take all it's information from the user and add it to the database
 void Admin::add_Employee(Employee& employee) {
 
     FileManager::add_Employee(employee);
 }
 
-
+//The List_client method used to list all the information of the clients that is stored in the database
 void Admin::list_clients() {
 
     FilesHelper::display_all_clients();
 }
 
+//The list_Employee method used to list all the information of the Employees that is stored in the database
 void Admin::list_Employee() {
 
     FilesHelper::display_all_employee();
 }
 
-
+//the Client_search access the csv file from the FileManger class and search of the data there 
 void Admin::Client_search(int id) {
 
     FileManager::Client_search(id);
 }
 
-
+//the Employee_search access the csv file from the FileManger class and search of the data there 
 void Admin::Employee_search(int id) {
     
     FileManager::Employee_search(id);
 
 }
 
+//the update_Client method start by calling the search method using the client's id
+//  if the Client is found then the editing function is called and the user can edit the data then after the user is finish
+// the new data restored in the database
+void Admin::update_Client(int id) {
+
+    if (FileManager::Client_search(id) != nullptr) {
+
+        Employee::edit_Client_menu(id);
+        FilesHelper::Update_Client(id);
+    }
+    else {
+        cout << "Client not found \nNO data to update it";
+    }
+}
+
+//the edit_Employee_menu function used to show the choses for the edit that the Admin can do 
+void Admin::edit_Employee_menu(int id)
+{
+
+    string name, password;
+    double salary;
+    int Case;
+    bool flag = true;
+
+    cout << " 1- Name.\n 2- Password.\n 3- Balance.\n 4- All\n\n";
+    cout << "Enter Option: ";
+    cin >> Case;
+    while (flag)
+    {
+        switch (Case)
+        {
+        case 1:
+            if (FilesHelper::Client_search(id) != nullptr)
+            {
+                cout << "New Name: ";
+                cin >> name;
+                FilesHelper::Client_search(id)->set_name(name);
+                cout << "Data updated successfully.";
+                flag = false;
+            }
+            break;
+
+        case 2:
+
+            if (FilesHelper::Client_search(id) != nullptr)
+            {
+                cout << "New Password: ";
+                cin >> password;
+                FilesHelper::Client_search(id)->set_password(password);
+                cout << "Data updated successfully.";
+                flag = false;
+            }
+            break;
+
+        case 3:
+            if (FilesHelper::Client_search(id) != nullptr)
+            {
+                cout << "New Balance: ";
+                cin >> salary;
+                FilesHelper::Client_search(id)->set_balance(salary);
+                cout << "Data updated successfully.";
+                flag = false;
+            }
+            break;
+
+        case 4:
+
+            if (FilesHelper::Client_search(id) != nullptr)
+            {
+                cout << "New Name: ";
+                cin >> name;
+                FilesHelper::Employee_search(id)->set_name(name);
+
+                cout << "New Password: ";
+                cin >> password;
+                FilesHelper::Employee_search(id)->set_password(password);
+
+                cout << "New Balance: ";
+                cin >> salary;
+                FilesHelper::Employee_search(id)->set_salary(salary);
+                cout << "Data updated successfully.";
+                flag = false;
+            }
+            break;
+
+        default:
+            cout << "Invalid Choice!\n";
+            cout << "Do you want to renter another chose : (Y/N) ";
+            char c;
+            cin >> c;
+            if (c == 'n' || c == 'N') {
+                cout << "No data is updated.";
+                flag = false;
+                break;
+            }
+            else {
+
+                Admin::edit_Employee_menu(id);
+
+            }
+
+        }
+
+    }
 
 
 
+
+}
+
+//the update_Employee method start by calling the search method using the Employee's id
+//  if the Employee is found then the editing function is called and the user can edit the data then after the user is finish
+// the new data restored in the database
+void Admin::update_Employee(int id) {
+
+
+    if (FileManager::Employee_search(id) != nullptr) {
+
+        Admin::edit_Employee_menu(id);
+        FileManager::update_all_Clients(id);
+    }
+    else {
+        cout << "Employee not found \nNO data to update it";
+    }
+}
+
+//The Remove_all_Client used to delete all the Client's data from the database
+void Admin::Remove_all_Client() 
+{
+    FileManager::Remove_all_Clients();
+}
+
+//The Remove_all_Employee used to delete all the Employee's data from the database
+void Admin::Remove_all_Employee() 
+{
+    FileManager::Remove_all_Employee();
+}

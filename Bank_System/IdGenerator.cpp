@@ -85,7 +85,7 @@ void IdGenerator::last_Client_id(int& id) {
         }
         temp_last /= 10;
         loops++;
-
+        //3000
     }
     if (count == loops - 1)
     {
@@ -99,4 +99,43 @@ void IdGenerator::last_Client_id(int& id) {
     }
 
     file.close();
+}
+
+
+void IdGenerator::current_Line_Generator(int& currentLine) {
+
+    int count = 0, loops = 0, temp_last = currentLine, last;
+    while (temp_last != 0)
+    {
+        int last_digit = temp_last % 10;
+        if (last_digit == 9)
+        {
+            count++;
+        }
+        last = temp_last;
+        temp_last /= 10;
+        loops++;
+
+    }
+    if (count == loops - 1)
+    {
+        currentLine = 3 * pow(10, loops);
+
+
+    }
+    else if ((count == loops - 1) && (last == 2))
+    {
+        currentLine = 2 * pow(10, loops);
+
+
+    }
+    else if ((count == loops - 1) && (last == 1))
+    {
+        currentLine = 1 * pow(10, loops);
+
+    }
+    else
+    {
+        currentLine++;
+    }
 }

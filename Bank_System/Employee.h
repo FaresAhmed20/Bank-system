@@ -3,6 +3,8 @@
 #include "Person.h"
 #include"Client.h"
 #include"FileManager.h"
+#include"istream"
+#include"vector" 
 
 
 
@@ -42,7 +44,11 @@ public:
     void list_clients();
 
     void Client_search(int id);
+
+    static void edit_Client_menu(int id);
+
+    static void update_Client(int id);
 };
 
-//the vector that stores tha Emplyee data
+//the vector that stores tha Employee data
 static vector<Employee> Employees;

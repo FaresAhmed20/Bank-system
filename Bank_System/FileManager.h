@@ -26,5 +26,10 @@ public:
 	static Admin* Admin_search(int id);
 	template <class Ty>
 	static Ty* Search_all_data(int id);
+	static void update_all_Clients(int id);
+	static void update_all_Employee(int id);
+	static void Remove_all_Clients();
+	static void Remove_all_Employee();
+	static void Remove_all_Admins();
 };
 

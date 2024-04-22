@@ -49,6 +49,16 @@ public:
 
     void Employee_search(int id);
 
+    void update_Client(int id);
+
+    void edit_Employee_menu(int id);
+
+    void update_Employee(int id);
+
+    void Remove_all_Client();
+
+    void Remove_all_Employee();
+
 };
 
 //the vector that stores the Admins data

@@ -31,12 +31,10 @@ public:
 
     //getters
     string get_name();
-    string get_password();
 
+    string get_password();
 
     //methods
     virtual void display_info() = 0;
-
-
 };
 

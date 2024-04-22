@@ -1,2 +1,23 @@
-﻿  Bank_System.cpp
+﻿  Admin.cpp
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Admin.cpp(196,62): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Bank_System.cpp
+  Client.cpp
+  DataSourceInterface.cpp
+  Employee.cpp
+  FileManager.cpp
+  FilesHelper.cpp
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\FilesHelper.cpp(205,2): warning C4551: function call missing argument list
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\FilesHelper.cpp(250,3): warning C4551: function call missing argument list
+  IdGenerator.cpp
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(27,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(59,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(92,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(122,25): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(128,25): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp(134,25): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Parser.cpp
+  Generating Code...
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\FilesHelper.cpp(292,1): warning C4715: 'FilesHelper::Admin_search': not all control paths return a value
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\FileManager.cpp(209,1): warning C4715: 'FileManager::Admin_search': not all control paths return a value
+  LINK : C:\Users\Blu-Ray\Bank_System\Bank-system\x64\Debug\Bank_System.exe not found or not built by the last incremental link; performing full link
   Bank_System.vcxproj -> C:\Users\Blu-Ray\Bank_System\Bank-system\x64\Debug\Bank_System.exe
