@@ -191,30 +191,59 @@ void FilesHelper::get_all_Admins() {
 	}
 }
 
+//The Delete_all_Clients method used to delete all the data that is found in the vector 
+void FilesHelper::Delete_all_Clients()
+{
+	clients.erase(clients.begin() , clients.end());
+}
+
+//The Delete_all_Employee method used to delete all the data that is found in the vector 
+void FilesHelper::Delete_all_Employee()
+{
+	Employees.erase(Employees.begin(), Employees.end());
+}
+
 //the Display_Client function first call the the get_all_Client to store the data in the vector 
 // then call the display_info for every client in the vector to print it's unique info
 void FilesHelper::display_all_clients() {
 
-	get_all_Clients();
+	ifstream file("Client.txt");
 
-	for (auto& client : clients) {
-		
-		client.display_info();
-		cout << "--------------------" << endl;
+	file.seekg(0, ios::out);
+
+	if (file.tellg() != 0) {
+
+		for (auto& client : clients) {
+
+			client.display_info();
+			cout << "--------------------" << endl;
+		}
 	}
-	exit;
+	else {
+		cout << "There is no Clients in the Database "<<endl;
+	}
+
+	
 }
 
 //the Display_Employee function first call the the get_all_Client to store the data in the vector 
 // then call the display_info for every Employee in the vector to print it's unique info
 void FilesHelper::display_all_employee() {
 
-	get_all_Employee();
+	ifstream file("Employee.txt");
 
-	for (auto& employee : Employees) {
+	file.seekg(0, ios::out);
 
-		employee.display_info();
-		cout << "--------------------" << endl;
+	if (file.tellg() != 0) {
+
+		for (auto& Employee : Employees) {
+
+			Employee.display_info();
+			cout << "--------------------" << endl;
+		}
+	}
+	else {
+		cout << "There is no Employees in the Database " << endl;
 	}
 }
 
@@ -396,6 +425,7 @@ void FilesHelper::Clear_Files(string filename, string FileName) {
 void FilesHelper::Update_Client(int id) {
 
 
+
 	ifstream file("Client.txt");
 
 	ofstream temp_file("Temp_Client.txt", ios::out);
@@ -416,10 +446,12 @@ void FilesHelper::Update_Client(int id) {
 			temp_file << FileManager::Client_search(id)->get_name() << ","
 				<< FileManager::Client_search(id)->get_id() << ","
 				<< FileManager::Client_search(id)->get_password() << ","
-				<< FileManager::Client_search(id)->get_balance() << endl;
+				<< FileManager::Client_search(id)->get_balance()<< endl;
 		}
 
 		IdGenerator::current_Line_Generator(currentLine);
+
+
 	}
 
 	file.close();
@@ -457,6 +489,117 @@ void FilesHelper::Update_Employee(int id) {
 				<< FileManager::Employee_search(id)->get_password() << ","
 				<< FileManager::Employee_search(id)->get_salary() << endl;
 		}
+
+		IdGenerator::current_Line_Generator(currentLine);
+
+
+	}
+
+	file.close();
+	temp_file.close();
+
+	string fileName = "Employee.txt";
+
+
+	remove(fileName.c_str());
+	rename("Temp_Employee.txt", fileName.c_str());
+}
+
+//The Update_Admin takes the id of the Admin that it's data have been updated and Renters it in the database
+void FilesHelper::Update_Admins(int id)
+{
+	ifstream file("Admin.txt");
+
+	ofstream temp_file("Temp_Admin.txt", ios::out);
+
+	string line;
+
+
+	int currentLine = 101;
+	while (getline(file, line))
+	{
+		if (currentLine != id)
+		{
+			temp_file << line << endl;
+
+		}
+		else
+		{
+			temp_file << FileManager::Admin_search(id)->get_name() << ","
+				<< FileManager::Admin_search(id)->get_id() << ","
+				<< FileManager::Admin_search(id)->get_password() << ","
+				<< FileManager::Admin_search(id)->get_salary() << endl;
+		}
+
+		IdGenerator::current_Line_Generator(currentLine);
+
+
+	}
+
+	file.close();
+	temp_file.close();
+
+	string fileName = "Admin.txt";
+
+
+	remove(fileName.c_str());
+	rename("Temp_Admin.txt", fileName.c_str());
+}
+
+//The Remove_specific_Client method takes the id for specific Client and remove it from the database
+void FilesHelper::Remove_specific_Client(int id)
+{
+	ifstream file("Client.txt");
+
+	ofstream temp_file("Temp_Client.txt", ios::out);
+
+	string line;
+
+
+	int currentLine = 301;
+	while (getline(file, line))
+	{
+		if (currentLine != id)
+		{
+			temp_file << line << endl;
+
+		}
+		
+
+		IdGenerator::current_Line_Generator(currentLine);
+
+
+	}
+
+	file.close();
+	temp_file.close();
+
+	string fileName = "Client.txt";
+
+
+	remove(fileName.c_str());
+	rename("Temp_Client.txt", fileName.c_str());
+}
+
+//The Remove_specific_Employee method takes the id for specific Client and remove it from the database
+void FilesHelper::Remove_specific_Employee(int id)
+{
+	ifstream file("Employee.txt");
+
+	ofstream temp_file("Temp_Employee.txt", ios::out);
+
+	string line;
+
+
+	int currentLine = 201;
+	while (getline(file, line))
+	{
+		if (currentLine != id)
+		{
+			temp_file << line << endl;
+
+		}
+		
 
 		IdGenerator::current_Line_Generator(currentLine);
 

@@ -45,9 +45,9 @@ public:
 
     void list_Employee();
 
-    void Client_search(int id);
+    Client* Client_search(int id);
 
-    void Employee_search(int id);
+    Employee* Employee_search(int id);
 
     void update_Client(int id);
 
@@ -58,6 +58,10 @@ public:
     void Remove_all_Client();
 
     void Remove_all_Employee();
+
+    void Remove_specific_Client(int id);
+
+    void Remove_specific_Employee(int id);
 
 };
 

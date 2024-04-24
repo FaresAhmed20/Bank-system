@@ -86,6 +86,18 @@ void FileManager::get_all_Admins()
 	FilesHelper::get_all_Admins();
 }
 
+//The Delete_all_Clients Method delete all the data that exits in the vector 
+void FileManager::Delete_all_Clients()
+{
+	FilesHelper::Delete_all_Clients();
+}
+
+//The Delete_all_Employee Method delete all the data that exits in the vector 
+void FileManager::Delete_all_Employees()
+{
+	FilesHelper::Delete_all_Employee();
+}
+
 //the Client_Search function gets an id from the user to be searched in the database 
 //it uses the Client_search function in the filesHelper class to access the data in the csv file and then search in it
 //if the FilesHelper::Client_search return a valid data the function return it to the user to access this data
@@ -100,19 +112,7 @@ Client* FileManager::Client_search(int id) {
 
 		if (FilesHelper::Client_search(id) == nullptr) {
 
-			cout << "Clint not found " << endl;
-			cout << "Are you want to search using another id : (y/n) ";
-			char c;
-			cin >> c;
-			if (c == 'y' || c == 'Y') {
-				cout << "Enter the new id you want to search for : ";
-				cin.clear();
-				cin.ignore(INT_MAX, '\n');
-				cin >> id;
-			}
-			else {
-				return  nullptr;
-			}
+		  return  nullptr;
 			
 		}
 		else {
@@ -210,7 +210,7 @@ Ty* FileManager::Search_all_data(int id) {
 
 }
 
-//The update_all_Clients used to call the updata method from the FileHelper 
+//The update_all_Clients used to call the update method from the FileHelper 
 void FileManager::update_all_Clients(int id) 
 {
 	FilesHelper::Update_Client(id);
@@ -220,6 +220,11 @@ void FileManager::update_all_Clients(int id)
 void FileManager::update_all_Employee(int id)
 {
 	FilesHelper::Update_Employee(id);
+}
+
+void FileManager::update_all_Admins(int id)
+{
+	FilesHelper::Update_Admins(id);
 }
 
 //The Remove_all_Clients used to call the clear_Files method from the FileHelper 
@@ -241,4 +246,27 @@ void FileManager::Remove_all_Employee()
 void FileManager::Remove_all_Admins()
 {
 	FilesHelper::Clear_Files("Admin.txt", "Admin_last_id.txt");
+}
+
+//The Remove_specific_Client method takes the id for specific Client and send it to the File Helper
+//to search for that id and remove it 
+void FileManager::Remove_specific_Client(int id)
+{
+	FilesHelper::Remove_specific_Client(id);
+
+}
+
+//The Remove_specific_Employee method takes the id for specific Employee and send it to the File Helper 
+//to search for that id and remove it 
+void FileManager::Remove_specific_Employee(int id)
+{
+	FilesHelper::Remove_specific_Employee(id);
+}
+
+//The Get_All_Data method used to get all the data from the csv files to the vector 
+void FileManager::Get_All_Data()
+{
+	FilesHelper::get_all_Admins();
+	FilesHelper::get_all_Employee();
+	FilesHelper::get_all_Clients();
 }

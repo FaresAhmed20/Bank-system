@@ -1,11 +1,15 @@
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Admin.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\Admin.obj
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\AdminManager.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\AdminManager.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Bank_System.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\Bank_System.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Client.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\Client.obj
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\ClientManger.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\ClientManger.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\DataSourceInterface.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\DataSourceInterface.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Employee.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\Employee.obj
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\EmployeeManager.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\EmployeeManager.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\FileManager.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\FileManager.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\FilesHelper.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\FilesHelper.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\IdGenerator.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\IdGenerator.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Parser.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\Parser.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Person.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\Person.obj
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Screen.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\Screen.obj
 C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Validation.cpp;C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\x64\Debug\Validation.obj

@@ -98,9 +98,9 @@ void Employee::list_clients() {
 }
 
 //the Client_search access the csv file from the FileManger class and search of the data there 
-void Employee::Client_search(int id) {
+Client* Employee::Client_search(int id) {
 
-    FileManager::Client_search(id);
+   return FileManager::Client_search(id);
 
 }
 
@@ -111,7 +111,7 @@ void Employee::edit_Client_menu(int id) {
     double balance;
     int Case;
     bool flag = true;
-
+    system("cls");
     cout << " 1- Name.\n 2- Password.\n 3- Balance.\n 4- All\n\n";
     cout << "Enter Option: ";
     cin >> Case;
@@ -125,7 +125,7 @@ void Employee::edit_Client_menu(int id) {
                 cout << "New Name: ";
                 cin >> name;
                 FilesHelper::Client_search(id)->set_name(name);
-                cout << "Data updated successfully.";
+                cout << "\x1B[5mData Updated successfuly\033[0m " << endl;
                 flag = false;
             }
             break;
@@ -137,7 +137,7 @@ void Employee::edit_Client_menu(int id) {
                 cout << "New Password: ";
                 cin >> password;
                 FilesHelper::Client_search(id)->set_password(password);
-                cout << "Data updated successfully.";
+                cout << "\x1B[5mData Updated successfuly\033[0m " << endl;
                 flag = false;
             }
             break;
@@ -148,7 +148,7 @@ void Employee::edit_Client_menu(int id) {
                 cout << "New Balance: ";
                 cin >> balance;
                 FilesHelper::Client_search(id)->set_balance(balance);
-                cout << "Data updated successfully.";
+                cout << "\x1B[5mData Updated successfuly\033[0m " << endl;
                 flag = false;
             }
             break;
@@ -168,7 +168,7 @@ void Employee::edit_Client_menu(int id) {
                 cout << "New Balance: ";
                 cin >> balance;
                 FilesHelper::Client_search(id)->set_balance(balance);
-                cout << "Data updated successfully.";
+                cout << "\x1B[5mData Updated successfuly\033[0m " << endl;
                 flag = false;
             }
             break;
@@ -195,21 +195,51 @@ void Employee::edit_Client_menu(int id) {
 }
 
 //the update_Client method start by calling the search method using the client's id
-//  if the Client is found then the editing function is called and the user can edit the data then after the user is fenish
-// the new data restored in the databasse
-void Employee::update_Client(int id) {
+//  if the Client is found then the editing function is called and the user can edit the data then after the user is finish
+// the new data restored in the database
+void Employee::update_Client(int id) 
+{
 
-    if (FileManager::Client_search(id) != nullptr) {
+    bool flag = true;
 
-        Employee::edit_Client_menu(id);
-        FileManager::update_all_Clients(id);
-    }
-    else {
-        cout << "Client not found \nNO data to update it";
+    while (flag)
+    {
+        if (FileManager::Client_search(id) != nullptr) {
+
+            Employee::edit_Client_menu(id);
+            FileManager::update_all_Clients(id);
+            flag = false;
+        }
+        else {
+            cout << "Client not found \nNO data to update it";
+            cout << "Do you want to try another id : (Y/N) ";
+            char ans;
+            cin >> ans;
+
+            if (ans == 'Y' || ans == 'y') {
+                system("cls");
+                cout << "Enter the new id : ";
+                int id;
+                cin >> id;
+            }
+            else {
+                cout << "\x1B[5mNo data is updated\033[0m " << endl;
+            }
+        }
     }
 }
 
+//The Remove_client method takes the id of the client the Employeee wants to remove from the database and search in the database
+//if found the method delets it's data completly from the database 
+//if not found it tells the Employee that the id is not listed in the databasee
+void Employee::Remove_client(int id) 
+{
 
+    if (FileManager::Client_search(id) != nullptr) {
 
+        FileManager::Remove_specific_Client(id);
+
+    }
+}
 
 

@@ -1,3 +1,0 @@
-omaro,301,omar@10,9000
-fares,302,fares@30,8000
-menna,304,mo@70,9000

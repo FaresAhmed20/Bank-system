@@ -22,6 +22,8 @@ public:
 	static void get_all_Clients();
 	static void get_all_Employee();
 	static void get_all_Admins();
+	static void Delete_all_Clients();
+	static void Delete_all_Employee();
 	static void display_all_clients();
 	static void display_all_employee();
 	static void display_all_admins();
@@ -33,5 +35,8 @@ public:
 	static void Clear_Files(string filename, string FileName);
 	static void Update_Client(int id);
 	static void Update_Employee(int id);
+	static void Update_Admins(int id);
+	static void Remove_specific_Client(int id);
+	static void Remove_specific_Employee(int id);
 };
 

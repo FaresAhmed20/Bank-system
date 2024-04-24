@@ -1,20 +1,13 @@
+//This Bank System is devolped as the final project of the cs20 in Root Academy 
+//Made by : Fare Ahmed , Omar Sabry , Seif Kalid
+//Under the sopervice of Eng:Mohmaed Adel & Eng: Mostafa Madian
 #include "iostream"
-#include "Person.h"
-#include "Employee.h"
-#include "Admin.h"
-#include "Client.h"
-
+#include"Screen.h"
 using namespace std;
 
 
 int main() {
-
-    Employee e;
-    Client c;
-    Admin a;
-    
-    e.update_Client(303);
-
-   
-
+    Screen::RunApp();
 }
+
+

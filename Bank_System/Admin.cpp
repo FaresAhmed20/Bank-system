@@ -100,15 +100,15 @@ void Admin::list_Employee() {
 }
 
 //the Client_search access the csv file from the FileManger class and search of the data there 
-void Admin::Client_search(int id) {
+Client* Admin::Client_search(int id) {
 
-    FileManager::Client_search(id);
+   return FileManager::Client_search(id);
 }
 
 //the Employee_search access the csv file from the FileManger class and search of the data there 
-void Admin::Employee_search(int id) {
+Employee* Admin::Employee_search(int id) {
     
-    FileManager::Employee_search(id);
+    return FileManager::Employee_search(id);
 
 }
 
@@ -144,7 +144,7 @@ void Admin::edit_Employee_menu(int id)
         switch (Case)
         {
         case 1:
-            if (FilesHelper::Client_search(id) != nullptr)
+            if (FilesHelper::Employee_search(id) != nullptr)
             {
                 cout << "New Name: ";
                 cin >> name;
@@ -156,22 +156,22 @@ void Admin::edit_Employee_menu(int id)
 
         case 2:
 
-            if (FilesHelper::Client_search(id) != nullptr)
+            if (FilesHelper::Employee_search(id) != nullptr)
             {
                 cout << "New Password: ";
                 cin >> password;
-                FilesHelper::Client_search(id)->set_password(password);
+                FilesHelper::Employee_search(id)->set_password(password);
                 cout << "Data updated successfully.";
                 flag = false;
             }
             break;
 
         case 3:
-            if (FilesHelper::Client_search(id) != nullptr)
+            if (FilesHelper::Employee_search(id) != nullptr)
             {
                 cout << "New Balance: ";
                 cin >> salary;
-                FilesHelper::Client_search(id)->set_balance(salary);
+                FilesHelper::Employee_search(id)->set_salary(salary);
                 cout << "Data updated successfully.";
                 flag = false;
             }
@@ -179,7 +179,7 @@ void Admin::edit_Employee_menu(int id)
 
         case 4:
 
-            if (FilesHelper::Client_search(id) != nullptr)
+            if (FilesHelper::Employee_search(id) != nullptr)
             {
                 cout << "New Name: ";
                 cin >> name;
@@ -231,7 +231,7 @@ void Admin::update_Employee(int id) {
     if (FileManager::Employee_search(id) != nullptr) {
 
         Admin::edit_Employee_menu(id);
-        FileManager::update_all_Clients(id);
+        FileManager::update_all_Employee(id);
     }
     else {
         cout << "Employee not found \nNO data to update it";
@@ -248,4 +248,23 @@ void Admin::Remove_all_Client()
 void Admin::Remove_all_Employee() 
 {
     FileManager::Remove_all_Employee();
+}
+
+//the Remove_specific_Client method takes the id of the client from the Admin and remove it's data from the csv files
+void Admin::Remove_specific_Client(int id)
+{
+    if (FileManager::Client_search(id) != nullptr) {
+
+        FileManager::Remove_specific_Client(id);
+   }
+}
+
+//the Remove_specific_Employee method used to remove spacific Employee from the database it takes the id of that Employee and remove it 
+void Admin::Remove_specific_Employee(int id)
+{
+
+    if (FileManager::Employee_search(id) != nullptr) {
+
+        FileManager::Remove_specific_Employee(id);
+    }
 }

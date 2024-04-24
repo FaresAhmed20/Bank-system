@@ -96,7 +96,7 @@ void Client::transfer_to(double amount, Client& recipient)
             set_withdraw(amount);
             recipient.set_deposit(amount);
             cout << "Amount transfer successfully"<<endl;
-            return;
+            return ;
 
         }
         else
@@ -113,7 +113,7 @@ void Client::transfer_to(double amount, Client& recipient)
                 cin >> amount;
             }
             else  {
-                return;
+                return ;
             }
 
 
