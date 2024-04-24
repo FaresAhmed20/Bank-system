@@ -3,87 +3,12 @@
 
 
 
-//Admin_id Genrates a unique id for the Admin that start with '1' that make it more easy in the seacrch in the database
-void IdGenerator::adminId()
-{
-    int count = 0, loops = 0, temp_admin_id = Admin::admin_count;
-    while (temp_admin_id != 0)
-    {
-        int last_digit = temp_admin_id % 10;
-        if (last_digit == 9)
-        {
-            count++;
-        }
-        temp_admin_id /= 10;
-        loops++;
-
-    }
-
-
-    if (count == loops - 1)
-    {
-        Admin::admin_count = 1 * pow(10, loops);
-
-    }
-    else
-    {
-        Admin::admin_count++;
-    }
-}
-//Employee_id Genrates a unique id for the Employee that start with '2' that make it more easy in the seacrch in the database
-void IdGenerator::employeeId()
-{
-    int count = 0, loops = 0, temp_employee_id = Employee::employee_count;
-    while (temp_employee_id != 0) {
-        int last_digit = temp_employee_id % 10;
-        if (last_digit == 9) {
-            count++;
-        }
-        temp_employee_id /= 10;
-        loops++;
-    }
-
-    if (count == loops - 1) {
-        Employee::employee_count = 2 * pow(10, loops);
-
-    }
-    else {
-        Employee::employee_count++;
-
-    }
-}
-
-
-//Client_id Genrates a unique id for the Client that start with '3' that make it more easy in the seacrch in the database
-void IdGenerator::clientId()
-{
-    int count = 0, loops = 0, temp_client_id = Client::client_count;
-    while (temp_client_id != 0)
-    {
-        int last_digit = temp_client_id % 10;
-        if (last_digit == 9)
-        {
-            count++;
-        }
-        temp_client_id /= 10;
-        loops++;
-
-    }
-
-
-    if (count == loops - 1)
-    {
-        Client::client_count = 3 * pow(10, loops);
-    }
-    else
-    {
-        Client::client_count++;
-    }
-
-}
-
-
+//Admin_id Generates a unique id for the Admin that start with '1' that make it more easy in the search in the database
 void IdGenerator::last_Admin_id(int& id) {
+
+    ifstream file("Admin_last_id.txt");
+
+    file >> id;
 
     int count = 0, loops = 0, temp_last = id;
     while (temp_last != 0)
@@ -108,11 +33,15 @@ void IdGenerator::last_Admin_id(int& id) {
         id++;
     }
 
+    file.close();
 }
 
-
+//Employee_id Generates a unique id for the Employee that start with '2' that make it more easy in the search in the database
 void IdGenerator::last_Employee_id(int& id) {
 
+    ifstream file("Employee_last_id.txt");
+
+    file >> id;
     int count = 0, loops = 0, temp_last = id;
     while (temp_last != 0)
     {
@@ -136,11 +65,15 @@ void IdGenerator::last_Employee_id(int& id) {
         id++;
     }
 
+    file.close();
 }
 
-
+//Client_id Generates a unique id for the Client that start with '3' that make it more easy in the search in the database
 void IdGenerator::last_Client_id(int& id) {
 
+
+    ifstream file("Client_last_id.txt");
+    file >> id;
 
     int count = 0, loops = 0, temp_last = id;
     while (temp_last != 0)
@@ -152,7 +85,7 @@ void IdGenerator::last_Client_id(int& id) {
         }
         temp_last /= 10;
         loops++;
-
+        //3000
     }
     if (count == loops - 1)
     {
@@ -163,5 +96,46 @@ void IdGenerator::last_Client_id(int& id) {
     else
     {
         id++;
+    }
+
+    file.close();
+}
+
+
+void IdGenerator::current_Line_Generator(int& currentLine) {
+
+    int count = 0, loops = 0, temp_last = currentLine, last;
+    while (temp_last != 0)
+    {
+        int last_digit = temp_last % 10;
+        if (last_digit == 9)
+        {
+            count++;
+        }
+        last = temp_last;
+        temp_last /= 10;
+        loops++;
+
+    }
+    if (count == loops - 1)
+    {
+        currentLine = 3 * pow(10, loops);
+
+
+    }
+    else if ((count == loops - 1) && (last == 2))
+    {
+        currentLine = 2 * pow(10, loops);
+
+
+    }
+    else if ((count == loops - 1) && (last == 1))
+    {
+        currentLine = 1 * pow(10, loops);
+
+    }
+    else
+    {
+        currentLine++;
     }
 }

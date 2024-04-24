@@ -3,6 +3,8 @@
 #include "Person.h"
 #include"Client.h"
 #include"FileManager.h"
+#include"istream"
+#include"vector" 
 
 
 
@@ -16,8 +18,6 @@ class Employee : public Person  {
 protected:
     int salary;
 public:
-    
-    static int employee_count;
     int employee_id;
 
     //default constructor
@@ -28,6 +28,7 @@ public:
 
     //setters
     void set_salary(int salary);
+    void set_id(int id);
 
     //getters
     double get_salary();
@@ -42,8 +43,14 @@ public:
 
     void list_clients();
 
-    void Client_search(int id);
+    Client* Client_search(int id);
+
+    static void edit_Client_menu(int id);
+
+    static void update_Client(int id);
+
+    void Remove_client(int id);
 };
 
-//the vector that stores tha Emplyee data
+//the vector that stores tha Employee data
 static vector<Employee> Employees;

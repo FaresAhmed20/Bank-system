@@ -1,2 +1,3 @@
-﻿Employee.obj : error LNK2019: unresolved external symbol "public: static class Client * __cdecl FileManager::Search_all_data<class Client>(int)" (??$Search_all_data@VClient@@@FileManager@@SAPEAVClient@@H@Z) referenced in function "public: void __cdecl Employee::Client_search(int)" (?Client_search@Employee@@QEAAXH@Z)
-C:\Users\Blu-Ray\Bank_System\Bank-system\x64\Debug\Bank_System.exe : fatal error LNK1120: 1 unresolved externals
+﻿  AdminManager.cpp
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\AdminManager.cpp(598,1): warning C4715: 'AdminManager::Admin_options': not all control paths return a value
+  Bank_System.vcxproj -> C:\Users\Blu-Ray\Bank_System\Bank-system\x64\Debug\Bank_System.exe

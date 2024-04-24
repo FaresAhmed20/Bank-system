@@ -20,7 +20,4 @@ public:
     static bool check_balance(double& balance);
 
     static bool check_salary(int& salary);
-
-
-
 };

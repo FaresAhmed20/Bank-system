@@ -29,6 +29,7 @@ Client Parser::phaser_to_client(string line) {
 	Client client;
 
 	client.set_name(data[0]);
+	client.set_id(stoi(data[1]));
 	client.set_password(data[2]);
 	client.set_balance(stoi(data[3]));
 
@@ -41,14 +42,15 @@ Client Parser::phaser_to_client(string line) {
 
 
 //the phaser_to_Employee method send every line to the split method and take the return from the method and store it in 
-//the right sequance that can be strored and accessed in the main vector
-Employee Parser::phasee_to_employee(string line) {
+//the right sequence that can be stored and accessed in the main vector
+Employee Parser::phaser_to_employee(string line) {
 
 	vector<string> data = split(line);
 	
 	Employee employee;
 
 	employee.set_name(data[0]);
+	employee.set_id(stoi(data[1]));
 	employee.set_password(data[2]);
 	employee.set_salary(stoi(data[3]));
 
@@ -58,7 +60,7 @@ Employee Parser::phasee_to_employee(string line) {
 
 
 //the phaser_to_Admin method send every line to the split method and take the return from the method and store it in 
-//the right sequance that can be strored and accessed in the main vector
+//the right sequence that can be stored and accessed in the main vector
 Admin Parser::phaser_to_admin(string line) {
 
 
@@ -67,6 +69,7 @@ Admin Parser::phaser_to_admin(string line) {
 	Admin admin;
 
 	admin.set_name(data[0]);
+	admin.set_id(stoi(data[1]));
 	admin.set_password(data[2]);
 	admin.set_salary(stoi(data[3]));
 

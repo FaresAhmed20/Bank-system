@@ -11,7 +11,7 @@ private:
 	int salary;
 
 public:
-	static int admin_count;
+	
     int admin_id;
 
     //default constructor
@@ -26,6 +26,7 @@ public:
     //setters
     void set_salary(int salary);
 
+    void set_id(int admin_id);
  
 
     //getters
@@ -44,9 +45,23 @@ public:
 
     void list_Employee();
 
-    void Client_search(int id);
+    Client* Client_search(int id);
 
-    void Employee_search(int id);
+    Employee* Employee_search(int id);
+
+    void update_Client(int id);
+
+    void edit_Employee_menu(int id);
+
+    void update_Employee(int id);
+
+    void Remove_all_Client();
+
+    void Remove_all_Employee();
+
+    void Remove_specific_Client(int id);
+
+    void Remove_specific_Employee(int id);
 
 };
 

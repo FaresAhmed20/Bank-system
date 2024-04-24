@@ -15,7 +15,7 @@ class Parser
 public:
 
 	static Client phaser_to_client(string line);
-	static Employee phasee_to_employee(string line);
+	static Employee phaser_to_employee(string line);
 	static Admin phaser_to_admin(string line);
 };
 

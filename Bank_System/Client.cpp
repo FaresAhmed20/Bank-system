@@ -6,9 +6,10 @@
 //constructor
 Client::Client() 
 {
-    IdGenerator::clientId();
-    client_id = client_count;
-
+    int id;
+    IdGenerator::last_Client_id(id);
+    client_id = id;
+    
 }
 
 
@@ -16,13 +17,23 @@ Client::Client(string name, string password, double balance)
     : Person(name, password), balance(balance)
 {
     set_balance(balance);
-    IdGenerator::clientId();
-    client_id = client_count;
+
+    int id;
+    IdGenerator::last_Client_id(id);
+    client_id = id;
 
 
 }
 
 //setters
+
+void Client::set_id(int client_id)
+{
+    Client::client_id = client_id;
+}
+
+
+
 void Client::set_balance(double balance) {
 
     while (true)
@@ -46,17 +57,6 @@ void Client::set_balance(double balance) {
 
 }
 
-
-
-void Client::set_id(int id) {
-
-    IdGenerator::clientId();
-    client_id = client_count;
-
-}
-
-
-
 //getters
 double Client::get_balance()
 {
@@ -72,18 +72,19 @@ int Client::get_id()
 
 //method
 
+//The set_deposit used to add money to the Clients account 
 void Client::set_deposit(const double amount)
 {
-
     balance += amount;
-
 }
 
+//The set_withdraw used to withdraw the money from the user account
 void Client::set_withdraw(const double amount)
 {
     balance -= amount;
 }
 
+//The transfer_to used to transfer the data between two accounts
 void Client::transfer_to(double amount, Client& recipient)
 {
 
@@ -94,8 +95,8 @@ void Client::transfer_to(double amount, Client& recipient)
         {
             set_withdraw(amount);
             recipient.set_deposit(amount);
-            cout << "Amount transfer sacssefuly"<<endl;
-            return;
+            cout << "Amount transfer successfully"<<endl;
+            return ;
 
         }
         else
@@ -112,7 +113,7 @@ void Client::transfer_to(double amount, Client& recipient)
                 cin >> amount;
             }
             else  {
-                return;
+                return ;
             }
 
 
@@ -122,6 +123,7 @@ void Client::transfer_to(double amount, Client& recipient)
 
 }
 
+//The display_info used to display thee information of the Client
 void Client::display_info()
 {
 
@@ -131,4 +133,3 @@ void Client::display_info()
         << "Balance: " << balance << endl;
 }
 
-int Client::client_count = 300;
