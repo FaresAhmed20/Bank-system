@@ -75,12 +75,19 @@ void AdminManager::Client_search(Admin* admin)
 				cin.ignore(INT_MAX, '\n');
 				cin >> id;
 			}
+			else {
+				cout << '\n';
+				flag = false;
+				break;
+			}
 		}
 		else {
 
 			system("cls");
 			cout << "Client is found successfully " << endl;
 			cout << "To access this account enter Enter : ";
+			sleep_until(system_clock::now() + 2s);
+			cin.get();
 
 			bool flag2 = true;
 
@@ -118,6 +125,7 @@ void AdminManager::Edit_Client_info(Admin* admin)
 //Method so the Admin can login as client using the id & password of that client to directly access his/her account 
 Client* AdminManager::login_as_Client(int id, string pass)
 {
+
 	bool flag = true;
 
 	while (flag)
@@ -125,8 +133,7 @@ Client* AdminManager::login_as_Client(int id, string pass)
 
 		if (FileManager::Client_search(id) != nullptr and FileManager::Client_search(id)->get_password() == pass) {
 
-			Client* client = ClientManger::login(id, pass);
-			ClientManger::Client_options(client);
+			EmployeeManager::login_as_Client(id , pass);
 			flag = false;
 		}
 		else {
@@ -244,8 +251,8 @@ void AdminManager::Edit_Employee_info(Admin* admin)
 	system("pause");
 }
 
-//Method allows the Admin to login as Employee using the id & passweord of that Employee
-//Which allow the Admin to access that Empolyee acount directly 
+//Method allows the Admin to login as Employee using the id & password of that Employee
+//Which allow the Admin to access that Employee account directly 
 void AdminManager::login_as_Employee(int id, string pass)
 {
 	bool flag = true;
@@ -309,6 +316,7 @@ void AdminManager::update_pass(int id)
 
 		FilesHelper::Admin_search(id)->set_password(pass);
 		FileManager::update_all_Admins(id);
+		
 		cout << "\x1B[5mPassword updated successfully\033[0m" << endl;
 		return;
 	}
@@ -322,277 +330,287 @@ bool AdminManager::Admin_options(Admin* admin)
 	cout << "Enter your choice : ";
 	int choice;
 	cin >> choice;
+	if (!cin.fail() and choice>=1 and choice <= 17 ) {
 
-	switch (choice)
-	{
-	case 1:
-		system("cls");
-		admin->display_info();
-		system("pause");
-		break;
-	case 2:
-		system("cls");
-		update_pass(main_id);
-		system("pause");
-		break;
-	case 3:
-		new_Client(admin);
-		cout << "\x1B[5mClient Added successfully\033[0m " << endl;
-		system("pause");
-		break;
-	case 4:
-	{
-		bool flag = true;
-		system("cls");
-		cout << ("\t\x1b[41m               You are about to delete a client from the database       \x1b[0m") << endl;
-		cout << ("\t\x1b[41m                   If you are sure press Enter to continue              \x1b[0m");
-		sleep_until(system_clock::now() + 1s);
-		cin.get();
-
-		while (flag)
+		switch (choice)
 		{
+		case 1:
+			system("cls");
+			admin->display_info();
+			system("pause");
+			break;
+		case 2:
+			system("cls");
+			update_pass(main_id);
+			system("pause");
+			break;
+		case 3:
+			new_Client(admin);
+			cout << "\x1B[5mClient Added successfully\033[0m " << endl;
+			system("pause");
+			break;
+		case 4:
+		{
+			bool flag = true;
+			system("cls");
+			cout << ("\t\x1b[41m               You are about to delete a client from the database       \x1b[0m") << endl;
+			cout << ("\t\x1b[41m                   If you are sure press Enter to continue              \x1b[0m");
+			sleep_until(system_clock::now() + 1s);
+			cin.get();
 
-			if (cin.get() == '\n') {
-				system("cls");
-				cout << "\x1B[31m Enter the id of the Client you want to delete :\033[0m ";
+			while (flag)
+			{
+
+				if (cin.get() == '\n') {
+					system("cls");
+					cout << "\x1B[31m Enter the id of the Client you want to delete :\033[0m ";
+					int id;
+					cin >> id;
+					if (FileManager::Client_search(id) != nullptr) {
+
+						delete_Client(id);
+						cout << "\x1B[5mClient deleted successfully\033[0m " << endl;
+						system("pause");
+						flag = false;
+					}
+					else {
+						cout << "Client is not found in the database " << endl;
+						cout << "Do you want to try another id : (Y/N) ";
+						char ans;
+						cin >> ans;
+
+						if (ans == 'Y' || ans == 'y') {
+							cin.clear();
+							cout << "Enter the new id : ";
+							cin >> id;
+						}
+						else {
+							cout << "\x1B[5mNo Data is updated\033[0m " << endl;
+							flag = false;
+						}
+					}
+				}
+				else {
+
+					cout << "You Entered a wrong key , Please Try Again : " << endl;
+					cin.clear();
+					cin.get();
+				}
+
+			}
+			system("pause");
+			break;
+		}
+		case 6:
+			system("cls");
+			Client_search(admin);
+			system("pause");
+			break;
+		case 7:
+			List_all_Clients(admin);
+			system("pause");
+			break;
+		case 8:
+			Edit_Client_info(admin);
+			system("pause");
+			break;
+		case 9:
+		{
+			system("cls");
+
+
+			ifstream file("Client.txt");
+
+			file.seekg(0 , ios::out);
+
+			if (file.tellg() != 0) {
+				file.close();
+				cout << "Enter the id of the Client account you want to enter : ";
 				int id;
 				cin >> id;
-				if (FileManager::Client_search(id) != nullptr) {
+				cout << "Enter the password of the Client account you want to enter : ";
+				string pass;
+				cin >> pass;
+				login_as_Client(id, pass);
+			}
+			else {
+				cout << "There is no Clients in the Database " << endl;
+			}
+			system("pause");
+			break;
+		}
+		case 10:
+			new_Employee(admin);
+			cout << "\x1B[5mEmployee updated successfully\033[0m " << endl;
+			system("pause");
+			break;
+		case 11:
+		{
 
-					delete_Client(id);
-					cout << "\x1B[5mClient deleted successfully\033[0m " << endl;
-					system("pause");
+
+			system("cls");
+			cout << ("\t\x1b[41m You are about to delete a Employee from the database\x1b[0m") << endl;
+			cout << ("\t\x1b[41m       If you are sure press Enter to continue       \x1b[0m");
+			sleep_until(system_clock::now() + 1s);
+			cin.get();
+			bool flag = true;
+
+			while (flag)
+			{
+
+				if (cin.get() == '\n') {
+					system("cls");
+					cout << "\x1B[31m Enter the id of the Employee you want to delete :\033[0m ";
+					int id;
+					cin >> id;
+					if (FileManager::Employee_search(id) != nullptr) {
+
+						delete_Employee(id);
+						cout << "\x1B[5mEmployee deleted successfully\033[0m " << endl;
+						system("pause");
+						flag = false;
+					}
+					else {
+						cout << "Employee is not found in the database " << endl;
+						cout << "Do you want to try another id : (Y/N) ";
+						char ans;
+						cin >> ans;
+
+						if (ans == 'Y' || ans == 'y') {
+							cin.clear();
+							cout << "Enter the new id : ";
+							cin >> id;
+						}
+						else {
+							cout << "\x1B[5mNo Data is updated\033[0m " << endl;
+							flag = false;
+						}
+					}
+				}
+				else {
+					cout << "You Entered A Wrong Key , Please Try Again : " << endl;
+					cin.clear();
+					cin.get();
+				}
+
+			}
+			system("pause");
+			break;
+		}
+		case 13:
+			Employee_search(admin);
+			system("pause");
+			break;
+		case 14:
+			List_all_Employee(admin);
+			system("pause");
+			break;
+		case 15:
+			Edit_Employee_info(admin);
+			break;
+		case 16:
+		{
+			system("cls");
+
+			ifstream file("Employee.txt");
+
+			file.seekg(0, ios::out);
+
+			if (file.tellg() != 0) {
+				file.close();
+				cout << "Enter the id of the Employee account you want to enter : ";
+				int id;
+				cin >> id;
+				cout << "Enter the password of the Employee account you want to enter : ";
+				string pass;
+				cin >> pass;
+				login_as_Employee(id, pass);
+
+			}
+			else {
+				cout << "There is no Employee in the Database " << endl;
+			}
+			system("pause");
+			break;
+		}
+		case 17:
+			system("cls");
+			cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
+			sleep_until(system_clock::now() + 2s);
+			return false;
+			break;
+		case 5:
+		{
+			system("cls");
+			cout << ("\t\x1b[41m You are about to delete All Clients from the database\x1b[0m") << endl;
+			cout << ("\t\x1b[41m       If you are sure press Enter to continue        \x1b[0m");
+			sleep_until(system_clock::now() + 2s);
+			cin.get();
+			bool flag = true;
+
+			while (flag)
+			{
+
+				if (cin.get() == '\n') {
+					system("cls");
+					cout << "\x1B[31m All Clients Are Going To Be Deleted \033[0m ";
+					FileManager::Remove_all_Clients();
+					FileManager::Delete_all_Clients();
+					system("cls");
+					cout << "\x1B[5mClients Deleted Successfully\033[0m " << endl;
 					flag = false;
 				}
 				else {
-					cout << "Client is not found in the database " << endl;
-					cout << "Do you want to try another id : (Y/N) ";
-					char ans;
-					cin >> ans;
-
-					if (ans == 'Y' || ans == 'y') {
-						cin.clear();
-						cout << "Enter the new id : ";
-						cin >> id;
-					}
-					else {
-						cout << "\x1B[5mNo Data is updated\033[0m " << endl;
-						flag = false;
-					}
+					cout << "You Entered a wrong key , Please Try Again : " << endl;
+					cin.clear();
+					cin.get();
 				}
+
 			}
-			else {
-
-				cout << "You Entered a wrong key , Please Try Again : " << endl;
-				cin.clear();
-				cin.get();
-			}
-
+			system("pause");
+			break;
 		}
-		system("pause");
-		break;
-	}
-	case 6:
-		system("cls");
-		Client_search(admin);
-		system("pause");
-		break;
-	case 7:
-		List_all_Clients(admin);
-		system("pause");
-		break;
-	case 8:
-		Edit_Client_info(admin);
-		system("pause");
-		break;
-	case 9:
-	{
-		system("cls");
-
-
-		ifstream file("Client.txt");
-
-		file.seekg(0, ios::out);
-
-		if (file.tellg() != 0) {
-
-			cout << "Enter the id of the Client account you want to enter : ";
-			int id;
-			cin >> id;
-			cout << "Enter the password of the Client account you want to enter : ";
-			string pass;
-			cin >> pass;
-			login_as_Client(id, pass);
-		}
-		else {
-			cout << "There is no Clients in the Database " << endl;
-		}
-		system("pause");
-		break;
-	}
-	case 10:
-		new_Employee(admin);
-		cout << "\x1B[5mEmployee updated successfully\033[0m " << endl;
-		system("pause");
-		break;
-	case 11:
-	{
-
-		
-		system("cls");
-		cout << ("\t\x1b[41m You are about to delete a Employee from the database\x1b[0m") << endl;
-		cout << ("\t\x1b[41m       If you are sure press Enter to continue       \x1b[0m");
-		sleep_until(system_clock::now() + 1s); 
-		cin.get();
-		bool flag = true;
-
-		while (flag)
+		case 12:
 		{
+			system("cls");
+			cout << ("\t\x1b[41m You are about to delete All Employees from the database\x1b[0m") << endl;
+			cout << ("\t\x1b[41m       If you are sure press Enter to continue          \x1b[0m");
+			sleep_until(system_clock::now() + 2s);
+			cin.get();
+			bool flag = true;
 
-			if (cin.get() == '\n') {
-				system("cls");
-				cout << "\x1B[31m Enter the id of the Employee you want to delete :\033[0m ";
-				int id;
-				cin >> id;
-				if (FileManager::Employee_search(id) != nullptr) {
+			while (flag)
+			{
 
-					delete_Employee(id);
-					cout << "\x1B[5mEmployee deleted successfully\033[0m " << endl;
+				if (cin.get() == '\n') {
+					system("cls");
+					cout << "\x1B[31m All Employees Are Going To Be Deleted \033[0m ";
+					FileManager::Remove_all_Employee();
+					FileManager::Delete_all_Employees();
+					system("cls");
+					cout << "\x1B[5mEmployees Deleted Successfully\033[0m " << endl;
 					system("pause");
-					flag = false;
+					break;
 				}
 				else {
-					cout << "Employee is not found in the database " << endl;
-					cout << "Do you want to try another id : (Y/N) ";
-					char ans;
-					cin >> ans;
-
-					if (ans == 'Y' || ans == 'y') {
-						cin.clear();
-						cout << "Enter the new id : ";
-						cin >> id;
-					}
-					else {
-						cout << "\x1B[5mNo Data is updated\033[0m " << endl;
-						flag = false;
-					}
+					cout << "You Entered a wrong key , Please Try Again : " << endl;
+					cin.clear();
+					cin.get();
 				}
+
 			}
-			else {
-				cout << "You Entered A Wrong Key , Please Try Again : " << endl;
-				cin.clear();
-				cin.get();
-			}
-
 		}
-		system("pause");
-		break;
+		}
+
+
+
 	}
-	case 13:
-		Employee_search(admin);
-		system("pause");
-		break;
-	case 14:
-		List_all_Employee(admin);
-		system("pause");
-		break;
-	case 15:
-		Edit_Employee_info(admin);
-		break;
-	case 16:
-	{
-		system("cls");
-
-		ifstream file("Employee.txt");
-
-		file.seekg(0, ios::out);
-
-		if (file.tellg() != 0) {
-
-			cout << "Enter the id of the Employee account you want to enter : ";
-			int id;
-			cin >> id;
-			cout << "Enter the password of the Employee account you want to enter : ";
-			string pass;
-			cin >> pass;
-			login_as_Employee(id, pass);
-			
-		}
-		else {
-			cout << "There is no Employee in the Database " << endl;
-		}
-		system("pause");
-		break;
-	}
-	case 17:
-		system("cls");
-		cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
+	else {
+		cout << "Invalid choice " << endl;
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		sleep_until(system_clock::now() + 2s);
-		return false;
-		break;
-	case 5:
-	{
-		system("cls");
-		cout << ("\t\x1b[41m You are about to delete All Clients from the database\x1b[0m") << endl;
-		cout << ("\t\x1b[41m       If you are sure press Enter to continue        \x1b[0m");
-		sleep_until(system_clock::now() + 1s);
-		cin.get();
-		bool flag = true;
-
-		while (flag)
-		{
-
-			if (cin.get() == '\n') {
-				system("cls");
-				cout << "\x1B[31m All Clients Are Going To Be Deleted \033[0m ";
-				FileManager::Remove_all_Clients();
-				system("cls");
-				cout << "\x1B[5mClients Deleted Successfully\033[0m " << endl;
-				flag = false;
-			}
-			else {
-				cout << "You Entered a wrong key , Please Try Again : " << endl;
-				cin.clear();
-				cin.get();
-			}
-
-		}
-		system("pause");
-		break;
+		
 	}
-	case 12:
-	{
-		system("cls");
-		cout << ("\t\x1b[41m You are about to delete All Employees from the database\x1b[0m") << endl;
-		cout << ("\t\x1b[41m       If you are sure press Enter to continue          \x1b[0m");
-		sleep_until(system_clock::now() + 1s);
-		cin.get();
-		bool flag = true;
-
-		while (flag)
-		{
-
-			if (cin.get() == '\n') {
-				system("cls");
-				cout << "\x1B[31m All Employees Are Going To Be Deleted \033[0m ";
-				FileManager::Remove_all_Employee();
-				system("cls");
-				cout << "\x1B[5mEmployees Deleted Successfully\033[0m " << endl;
-				system("pause");
-				break;
-			}
-			else {
-				cout << "You Entered a wrong key , Please Try Again : " << endl;
-				cin.clear();
-				cin.get();
-			}
-
-		}
-	}
-	}
-	
-
-	
-
-	AdminsMenu();
+	Admin_options(admin);
 }

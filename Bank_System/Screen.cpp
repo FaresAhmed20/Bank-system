@@ -2,7 +2,7 @@
 
 
 
-//Mthod to print the Bank name
+//Method to print the Bank name
 void Screen::Bank_Name()
 {
 
@@ -51,27 +51,34 @@ int Screen::login_as()
     login_options();
     cout << "Enter your choice : ";
     int choice;
-    cin >> choice;
     bool flag = true;
-
+    cin >> choice;
     while (flag)
     {
-        if (choice == 1 || choice == 2 || choice == 3) {
-            flag = false;
-            return choice;
-        }
-        else if (choice == 4) {
-            logout();
+
+       
+        if (!cin.fail() and choice >=1 and choice <= 4) {
+
+            if (choice == 1 || choice == 2 || choice == 3) {
+                flag = false;
+                return choice;
+            }
+            else if (choice == 4) {
+                logout();
+            }
         }
         else {
+
             cout << "Invalid choice " << endl;
-            login_options();
             cout << "Renter a Valid choice : ";
             cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> choice;
+
         }
     }
 }
+
 
 //The logout ,method used to log out from the system completely
 void Screen::logout()
@@ -104,7 +111,7 @@ void Screen::login_screen(int choice)
             if (EmployeeManager::login(id, pass) != nullptr) {
 
                 while (EmployeeManager::Employee_options(EmployeeManager::login(id, pass)) != false);
-                login_screen(login_as());
+                login_screen(login_as());;
 
             }
 
@@ -114,7 +121,7 @@ void Screen::login_screen(int choice)
         if (ClientManger::login(id, pass) != nullptr) {
 
             while (ClientManger::Client_options(ClientManger::login(id, pass)) != false);
-            login_screen(login_as());
+            login_screen(login_as());;
         }
     }
 }

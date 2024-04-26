@@ -31,7 +31,7 @@ void EmployeeManager::List_all_Clients(Employee* employee)
 	employee->list_clients();
 }
 
-//Method to search for spacific Client in the database using its id
+//Method to search for specific Client in the database using its id
 void EmployeeManager::Client_search(Employee* employee)
 {
 	system("cls");
@@ -88,7 +88,7 @@ void EmployeeManager::Client_search(Employee* employee)
 	
 }
 
-//Method to Edit the Client info by accessing the Client account uing it's id
+//Method to Edit the Client info by accessing the Client account using it's id
 void EmployeeManager::Edit_Client_info(Employee* employee)
 {
 	system("cls");
@@ -182,57 +182,67 @@ bool EmployeeManager::Employee_options(Employee* employee)
 
 	int choice;
 	cin >> choice;
+	if (!cin.fail() and choice >= 1 and choice <= 8) {
 
-	switch (choice)
-	{
-	case 1:
-		system("cls");
-		employee->display_info();
-		system("pause");
-		break;
-	case 2:
-		system("cls");
-		update_pass(main_id);
-		system("pause");
-		break;
-	case 3:
-		system("cls");
-		new_Client(employee);
-		system("pause");
-		break;
-	case 4:
-		system("cls");
-		Client_search(employee);
-		system("pause");
-		break;
-	case 5:
-		system("cls");
-		List_all_Clients(employee);
-		system("pause");
-		break;
-	case 6:
-		system("cls");
-		Edit_Client_info(employee);
-		break;
-	case 7:
-	{
-		system("cls");
-		cout << "Enter the Client id & it's password : ";
-		int id;
-		cin >> id;
-		string pass;
-		cin >> pass;
-		login_as_Client(id, pass);
-		system("pause");
-		break;
+		switch (choice)
+		{
+		case 1:
+			system("cls");
+			employee->display_info();
+			system("pause");
+			break;
+		case 2:
+			system("cls");
+			update_pass(main_id);
+			system("pause");
+			break;
+		case 3:
+			system("cls");
+			new_Client(employee);
+			system("pause");
+			break;
+		case 4:
+			system("cls");
+			Client_search(employee);
+			system("pause");
+			break;
+		case 5:
+			system("cls");
+			List_all_Clients(employee);
+			system("pause");
+			break;
+		case 6:
+			system("cls");
+			Edit_Client_info(employee);
+			break;
+		case 7:
+		{
+			system("cls");
+			cout << "Enter the Client id & it's password : ";
+			int id;
+			cin >> id;
+			string pass;
+			cin >> pass;
+			login_as_Client(id, pass);
+			system("pause");
+			break;
+		}
+		case 8:
+			cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
+			sleep_until(system_clock::now() + 2s);
+			return false;
+			break;
+
+		}
 	}
-	case 8:
-		cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
+	else {
+
+		cout << "Invalid choice " << endl;
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		sleep_until(system_clock::now() + 2s);
-		return false;
-		break;
-	
 	}
+	
 	
 	Employee_options(employee);
 }

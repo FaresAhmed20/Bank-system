@@ -7,6 +7,7 @@
 #include"FileManager.h"
 #include"FilesHelper.h"
 #include"Admin.h"
+#include"Client.h"
 #include"EmployeeManager.h"
 #include "ClientManger.h"
 using namespace std;

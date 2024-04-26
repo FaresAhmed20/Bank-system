@@ -137,27 +137,22 @@ Employee* FileManager::Employee_search(int id) {
 
 
 
-		if (FilesHelper::Employee_search(id) == nullptr) {
 
-			cout << "Employee is not found " << endl;
-			cout << "Are you want to search using another id : (y/n) ";
-			char c;
-			cin >> c;
-			if (c == 'y' || c == 'Y') {
-				cout << "Enter the new id you want to search for : ";
-				cin.clear();
-				cin.ignore(INT_MAX, '\n');
-				cin >> id;
+		while (true) {
+
+
+
+			if (FilesHelper::Employee_search(id) == nullptr) {
+
+				return  nullptr;
+
 			}
 			else {
-				return 0;
+
+				return FilesHelper::Employee_search(id);
+
 			}
 
-		}
-		else {
-			
-			return FilesHelper::Employee_search(id);
-			
 		}
 
 	}

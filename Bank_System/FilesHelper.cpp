@@ -268,7 +268,7 @@ void FilesHelper::display_all_admins() {
 Client* FilesHelper::Client_search(int id) {
 
 	
-	get_all_Clients();
+	
 
 	for (auto& Client : clients) {
 		
@@ -289,7 +289,7 @@ Client* FilesHelper::Client_search(int id) {
 // if the Employee found it return it's data if not it return nullptr
 Employee* FilesHelper::Employee_search(int id) {
 
-	get_all_Employee();
+	
 	
 	for (auto &Employee : Employees) {
 		
@@ -309,7 +309,6 @@ Employee* FilesHelper::Employee_search(int id) {
 // if the Admin found it return it's data if not it return nullptr
 Admin* FilesHelper::Admin_search(int id) {
 
-	get_all_Admins();
 
 	for (auto& Admin : Admins) {
 
