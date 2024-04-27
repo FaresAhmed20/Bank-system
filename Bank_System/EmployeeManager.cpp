@@ -217,16 +217,32 @@ bool EmployeeManager::Employee_options(Employee* employee)
 	case 7:
 	{
 		system("cls");
-		cout << "Enter the Client id & it's password : ";
-		int id;
-		cin >> id;
-		string pass;
-		cin >> pass;
-		login_as_Client(id, pass);
+
+		Encdec::Decryption("Client.txt");
+		ifstream file("Client.txt");
+
+		file.seekg(0, ios::out);
+
+		if (file.tellg() != 0) {
+			file.close();
+			Encdec::Encryption("Client.txt");
+			cout << "Enter the id of the Client account you want to enter : ";
+			int id;
+			cin >> id;
+			cout << "Enter the password of the Client account you want to enter : ";
+			string pass;
+			cin >> pass;
+			login_as_Client(id, pass);
+		}
+		else {
+			cout << "There is no Clients in the Database " << endl;
+		}
+
 		system("pause");
 		break;
 	}
 	case 8:
+		system("cls");
 		cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
 		sleep_until(system_clock::now() + 2s);
 		return false;

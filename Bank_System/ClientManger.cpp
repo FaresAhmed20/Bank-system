@@ -112,8 +112,8 @@ bool ClientManger::Client_options(Client* client)
 				cout << "Enter the amount you want to transfer to that account : ";
 				double amount;
 				cin >> amount;
-				Client recipient = *FileManager::Client_search(id);
-				client->transfer_to(amount, recipient);
+				Client* recipient = FileManager::Client_search(id);
+				client->transfer_to(amount, *recipient);
 				FileManager::update_all_Clients(main_id);
 				FileManager::update_all_Clients(id);
 				flag = false;
@@ -140,6 +140,7 @@ bool ClientManger::Client_options(Client* client)
 		break;
 	}
 	case 7 :
+		system("cls");
 		cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
 		sleep_until(system_clock::now() + 2s);
 		return false;
