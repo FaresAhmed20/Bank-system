@@ -55,14 +55,13 @@ int Screen::login_as()
     cin >> choice;
     while (flag)
     {
-<<<<<<< HEAD
+
 
        
-        if (!cin.fail() and choice >=1 and choice <= 4) {
-=======
+        
         if (!cin.fail() and choice >= 1 and choice <= 4) {
 
->>>>>>> f
+
 
             if (choice == 1 || choice == 2 || choice == 3) {
                 flag = false;
@@ -71,10 +70,7 @@ int Screen::login_as()
             else if (choice == 4) {
                 logout();
             }
-<<<<<<< HEAD
-=======
-           
->>>>>>> f
+
         }
         else {
 

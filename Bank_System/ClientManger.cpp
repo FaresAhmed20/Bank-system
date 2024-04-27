@@ -57,75 +57,63 @@ bool ClientManger::Client_options(Client* client)
 	int main_id = client->get_id();
 	Client_Menu();
 	cout << "Enter your choice : ";
-	
+
 	int  choice;
-	
+
 	cin >> choice;
+	switch (choice)
+	{
 
-	if (!cin.fail() and choice >= 1 and choice <= 7) {
+	case 1:
+		system("cls");
+		client->display_info();
+		system("pause");
+		break;
+	case 2:
+		system("cls");
+		cout << "\x1B[34mYour Balance is : \033[0m";
+		cout << client->get_balance() << endl;
+		system("pause");
+		break;
+	case 3:
+		Update_Pass(main_id);
+		system("pause");
+		break;
+	case 4:
+		system("cls");
+		cout << "Enter the amount you want to withdraw from the account : ";
+		double amount;
+		cin >> amount;
+		client->set_withdraw(amount);
+		FileManager::update_all_Clients(main_id);
+		system("pause");
+		break;
+	case 5:
+		system("cls");
+		cout << "Enter the amount you want to deposit into your account : ";
+		double num;
+		cin >> num;
+		client->set_deposit(num);
+		FileManager::update_all_Clients(main_id);
+		cout << "Amount added successfully " << endl;
+		system("pause");
+		break;
+	case 6:
+	{
+		system("cls");
+		bool flag = true;
+		cout << "Enter the id of the another account : ";
+		int id;;
+		cin >> id;
 
-		switch (choice)
+		while (flag)
 		{
-<<<<<<< HEAD
-
-		case 1:
-			system("cls");
-			client->display_info();
-			system("pause");
-			break;
-		case 2:
-			system("cls");
-			cout << "\x1B[34mYour Balance is : \033[0m";
-			cout << client->get_balance() << endl;
-			system("pause");
-			break;
-		case 3:
-			Update_Pass(main_id);
-			system("pause");
-			break;
-		case 4:
-			system("cls");
-			cout << "Enter the amount you want to withdraw from the account : ";
-			double amount;
-			cin >> amount;
-			client->set_withdraw(amount);
-			FileManager::update_all_Clients(main_id);
-			system("pause");
-			break;
-		case 5:
-			system("cls");
-			cout << "Enter the amount you want to deposit into your account : ";
-			double num;
-			cin >> num;
-			client->set_deposit(num);
-			FileManager::update_all_Clients(main_id);
-			cout << "Amount added successfully " << endl;
-			system("pause");
-			break;
-		case 6:
-		{
-			system("cls");
-			bool flag = true;
-			cout << "Enter the id of the another account : ";
-			int id;;
-			cin >> id;
-
-			while (flag)
-			{
-				if (FileManager::Client_search(id) != nullptr) {
-					cout << "Enter the amount you want to transfer to that account : ";
-					double amount;
-					cin >> amount;
-					Client* recipient = FileManager::Client_search(id);
-					client->transfer_to(amount, *recipient);
-					FileManager::update_all_Clients(id);
-=======
 			if (FileManager::Client_search(id) != nullptr) {
 				cout << "Enter the amount you want to transfer to that account : ";
 				double amount;
 				cin >> amount;
-				Client* recipient = FileManager::Client_search(id);
-				client->transfer_to(amount, *recipient);
+				Client recipient = *FileManager::Client_search(id);
+				client->transfer_to(amount, recipient);
 				FileManager::update_all_Clients(main_id);
 				FileManager::update_all_Clients(id);
 				flag = false;
@@ -141,57 +129,23 @@ bool ClientManger::Client_options(Client* client)
 					cin >> id;
 				}
 				else {
->>>>>>> f
 					flag = false;
-				}
-				else {
-					cout << "The id you entered is not correct " << endl;
-					cout << "Do you want to enter another id : (Y/N)";
-					char ans;
-					cin >> ans;
-					if (ans == 'Y' || ans == 'y') {
-						cout << "Enter the  new id : ";
-						int id;
-						cin >> id;
-					}
-					else {
-						flag = false;
-					}
-
 				}
 
 			}
-			FileManager::update_all_Clients(main_id);
-			cout << "\x1B[35mThank You For Using Our Service\033[0m" << endl;
-			system("pause");
-			break;
-		}
-		case 7:
-			system("cls");
-			cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
-			sleep_until(system_clock::now() + 2s);
-			return false;
-			break;
-		}
 
-
+		}
+		cout << "\x1B[35mThank You For Using Our Service\033[0m" << endl;
+		system("pause");
+		break;
 	}
-<<<<<<< HEAD
-	else {
-
-		cout << "Invalid choice " << endl;
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-=======
-	case 7 :
-		system("cls");
+	case 7:
 		cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
->>>>>>> f
 		sleep_until(system_clock::now() + 2s);
+		return false;
+		break;
 	}
 
-	
-	
 	Client_options(client);
 }
 

@@ -184,7 +184,6 @@ bool EmployeeManager::Employee_options(Employee* employee)
 	cin >> choice;
 	if (!cin.fail() and choice >= 1 and choice <= 8) {
 
-<<<<<<< HEAD
 		switch (choice)
 		{
 		case 1:
@@ -219,94 +218,39 @@ bool EmployeeManager::Employee_options(Employee* employee)
 		case 7:
 		{
 			system("cls");
-			cout << "Enter the Client id & it's password : ";
-			int id;
-			cin >> id;
-			string pass;
-			cin >> pass;
-			login_as_Client(id, pass);
+
+			Encdec::Decryption("Client.txt");
+			ifstream file("Client.txt");
+
+			file.seekg(0, ios::out);
+
+			if (file.tellg() != 0) {
+				file.close();
+				Encdec::Encryption("Client.txt");
+				cout << "Enter the id of the Client account you want to enter : ";
+				int id;
+				cin >> id;
+				cout << "Enter the password of the Client account you want to enter : ";
+				string pass;
+				cin >> pass;
+				login_as_Client(id, pass);
+			}
+			else {
+				cout << "There is no Clients in the Database " << endl;
+			}
+
 			system("pause");
 			break;
 		}
 		case 8:
+			system("cls");
 			cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
-			sleep_until(system_clock::now() + 2s);
-			return false;
-			break;
 
-		}
-	}
-	else {
-
-		cout << "Invalid choice " << endl;
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-=======
-	switch (choice)
-	{
-	case 1:
-		system("cls");
-		employee->display_info();
-		system("pause");
-		break;
-	case 2:
-		system("cls");
-		update_pass(main_id);
-		system("pause");
-		break;
-	case 3:
-		system("cls");
-		new_Client(employee);
-		system("pause");
-		break;
-	case 4:
-		system("cls");
-		Client_search(employee);
-		system("pause");
-		break;
-	case 5:
-		system("cls");
-		List_all_Clients(employee);
-		system("pause");
-		break;
-	case 6:
-		system("cls");
-		Edit_Client_info(employee);
-		break;
-	case 7:
-	{
-		system("cls");
-
-		Encdec::Decryption("Client.txt");
-		ifstream file("Client.txt");
-
-		file.seekg(0, ios::out);
-
-		if (file.tellg() != 0) {
-			file.close();
-			Encdec::Encryption("Client.txt");
-			cout << "Enter the id of the Client account you want to enter : ";
-			int id;
-			cin >> id;
-			cout << "Enter the password of the Client account you want to enter : ";
-			string pass;
-			cin >> pass;
-			login_as_Client(id, pass);
-		}
-		else {
-			cout << "There is no Clients in the Database " << endl;
+				sleep_until(system_clock::now() + 2s);
+				return false;
 		}
 
-		system("pause");
-		break;
 	}
-	case 8:
-		system("cls");
-		cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
->>>>>>> f
-		sleep_until(system_clock::now() + 2s);
-	}
-	
-	
 	Employee_options(employee);
+
 }

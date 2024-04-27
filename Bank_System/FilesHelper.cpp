@@ -313,12 +313,7 @@ Client* FilesHelper::Client_search(int id) {
 // if the Employee found it return it's data if not it return nullptr
 Employee* FilesHelper::Employee_search(int id) {
 
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> f
-	
 	for (auto &Employee : Employees) {
 		
 		if (Employee.get_id() == id) {
@@ -337,10 +332,6 @@ Employee* FilesHelper::Employee_search(int id) {
 // if the Admin found it return it's data if not it return nullptr
 Admin* FilesHelper::Admin_search(int id) {
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> f
 
 	for (auto& Admin : Admins) {
 
