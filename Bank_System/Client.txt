@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 fares,301,fares,3500
 ahmed,302,ahmed,5500
+=======
+†’…“LSPQL†’…“LSWPP*—……………LSPRL†’…““LVPPP*†’…““LSPSL†’…“LVPPP*
+>>>>>>> f

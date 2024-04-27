@@ -5,6 +5,7 @@
 #include"Employee.h"
 #include"Admin.h"
 #include"Parser.h"
+#include"Encdec.h"
 class Employee;
 class Admin;
 using namespace std;

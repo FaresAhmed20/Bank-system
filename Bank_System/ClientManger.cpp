@@ -66,6 +66,7 @@ bool ClientManger::Client_options(Client* client)
 
 		switch (choice)
 		{
+<<<<<<< HEAD
 
 		case 1:
 			system("cls");
@@ -118,6 +119,29 @@ bool ClientManger::Client_options(Client* client)
 					Client* recipient = FileManager::Client_search(id);
 					client->transfer_to(amount, *recipient);
 					FileManager::update_all_Clients(id);
+=======
+			if (FileManager::Client_search(id) != nullptr) {
+				cout << "Enter the amount you want to transfer to that account : ";
+				double amount;
+				cin >> amount;
+				Client* recipient = FileManager::Client_search(id);
+				client->transfer_to(amount, *recipient);
+				FileManager::update_all_Clients(main_id);
+				FileManager::update_all_Clients(id);
+				flag = false;
+			}
+			else {
+				cout << "The id you entered is not correct " << endl;
+				cout << "Do you want to enter another id : (Y/N)";
+				char ans;
+				cin >> ans;
+				if (ans == 'Y' || ans == 'y') {
+					cout << "Enter the  new id : ";
+					int id;
+					cin >> id;
+				}
+				else {
+>>>>>>> f
 					flag = false;
 				}
 				else {
@@ -152,11 +176,17 @@ bool ClientManger::Client_options(Client* client)
 
 
 	}
+<<<<<<< HEAD
 	else {
 
 		cout << "Invalid choice " << endl;
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+=======
+	case 7 :
+		system("cls");
+		cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
+>>>>>>> f
 		sleep_until(system_clock::now() + 2s);
 	}
 

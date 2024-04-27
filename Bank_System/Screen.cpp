@@ -55,9 +55,14 @@ int Screen::login_as()
     cin >> choice;
     while (flag)
     {
+<<<<<<< HEAD
 
        
         if (!cin.fail() and choice >=1 and choice <= 4) {
+=======
+        if (!cin.fail() and choice >= 1 and choice <= 4) {
+
+>>>>>>> f
 
             if (choice == 1 || choice == 2 || choice == 3) {
                 flag = false;
@@ -66,6 +71,10 @@ int Screen::login_as()
             else if (choice == 4) {
                 logout();
             }
+<<<<<<< HEAD
+=======
+           
+>>>>>>> f
         }
         else {
 
@@ -83,6 +92,7 @@ int Screen::login_as()
 //The logout ,method used to log out from the system completely
 void Screen::logout()
 {
+    
     system("cls");
     cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
     exit(0);
@@ -129,28 +139,45 @@ void Screen::login_screen(int choice)
 //The First_Admin method used to check if there is no data in the admin file it adds one so the user can access the system using that account
 void Screen::First_Admin()
 {
+    Encdec::Decryption("Admin.txt");
     ifstream file("Admin.txt");
     
     file.seekg(0, ios::out);
-     
+    
     if (file.tellg() == 0) {
+
+        file.close();
+        Encdec::Encryption("Admin.txt");
+
 
         Admin admin("Admin", "Admin", 5000);
         
         FilesHelper::save_Admins(admin);
+        FileManager::get_all_Admins();
+        exit;
     }
+    else if (file.tellg() != 0) {
+
+        file.close();
+        Encdec::Encryption("Admin.txt");
+       
+    }
+  
+  
+  
 }
 
 //The RunApp method is the method that collects all the App and run it
 void Screen::RunApp()
 {
+    
     FileManager::Get_All_Data();
     First_Admin();
-    Bank_Name();
+    /*Bank_Name();
     sleep_until(system_clock::now() + 3s);
     system("cls");
     Welcome();
-    sleep_until(system_clock::now() + 4s);
-    system("cls");
+    sleep_until(system_clock::now() + 3s);
+    system("cls");*/
     login_screen(login_as());
 }
