@@ -1,6 +1,5 @@
 #include "AdminManager.h"
 
-
 //Method that prints all the Admin menu
 void AdminManager::AdminsMenu()
 {
