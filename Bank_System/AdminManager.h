@@ -7,6 +7,7 @@
 #include"FileManager.h"
 #include"FilesHelper.h"
 #include"Admin.h"
+#include"Client.h"
 #include"EmployeeManager.h"
 #include "ClientManger.h"
 using namespace std;
@@ -26,7 +27,7 @@ class AdminManager
 
 public:
 
-	static void new_Client(Admin* admin);
+	static Client new_Client(Admin* admin);
 
 	static void delete_Client(int id);
 
@@ -38,7 +39,7 @@ public:
 
 	static Client* login_as_Client(int id, string pass);
 
-	static void new_Employee(Admin* admin);
+	static Employee new_Employee(Admin* admin);
 
 	static void delete_Employee(int id);
 

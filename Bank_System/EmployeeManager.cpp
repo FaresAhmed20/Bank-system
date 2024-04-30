@@ -15,13 +15,15 @@ void EmployeeManager::EmployeeMenu()
 }
 
 //method to add new client
-void EmployeeManager::new_Client(Employee* employee)
+Client EmployeeManager::new_Client(Employee* employee)
 {
 	system("cls");
 	Client client;
 	employee->add_Client(client);
 	FileManager::Delete_all_Clients();
 	FileManager::get_all_Clients();
+	return client;
+
 }
 
 //Method to list all the Clients that is found in the database
@@ -31,7 +33,7 @@ void EmployeeManager::List_all_Clients(Employee* employee)
 	employee->list_clients();
 }
 
-//Method to search for spacific Client in the database using its id
+//Method to search for specific Client in the database using its id
 void EmployeeManager::Client_search(Employee* employee)
 {
 	system("cls");
@@ -63,9 +65,10 @@ void EmployeeManager::Client_search(Employee* employee)
 		else {
 
 			system("cls");
-			cout << "Client is found successfully " << endl;
+			cout << "\x1B[5mClient Found successfully \033[0m " << endl;
 			cout << "To access this account enter Enter : ";
-			
+			sleep_until(system_clock::now() + 0.3s);
+			cin.get();
 			bool flag2 = true;
 
 			while (flag2) {
@@ -88,7 +91,7 @@ void EmployeeManager::Client_search(Employee* employee)
 	
 }
 
-//Method to Edit the Client info by accessing the Client account uing it's id
+//Method to Edit the Client info by accessing the Client account using it's id
 void EmployeeManager::Edit_Client_info(Employee* employee)
 {
 	system("cls");
@@ -102,13 +105,16 @@ void EmployeeManager::Edit_Client_info(Employee* employee)
 //Method to update the password of the Employee account
 void EmployeeManager::update_pass(int id)
 {
-	if (FileManager::Employee_search(id) != nullptr) {
+
+	Employee* employee = FileManager::Employee_search(id);
+
+	if (employee != nullptr) {
 
 		string pass;
 		cout << "Enter the new password : ";
 		cin >> pass;
 
-		FilesHelper::Employee_search(id)->set_password(pass);
+		employee->set_password(pass);
 		FileManager::update_all_Employee(id);
 		cout << "\x1B[5mPassword updated successfully\033[0m " << endl;
 		return;
@@ -118,15 +124,27 @@ void EmployeeManager::update_pass(int id)
 //The login function of the Employee  takes the Employee id & password and check if the Employee exists in the database or not
 Employee* EmployeeManager::login(int id, string pass)
 {
-	if (FileManager::Employee_search(id)->get_id() == id && FileManager::Employee_search(id)->get_password() == pass) {
+
+	Employee* employee = FileManager::Employee_search(id);
+
+	if (employee != nullptr) {
+
+		if (employee->get_id() == id && employee->get_password() == pass) {
 
 
-		return FileManager::Employee_search(id);
+			return employee;
+
+		}
+		else {
+
+			return nullptr;
+		}
+
 
 	}
-	else {
-		return nullptr;
-	}
+
+	return nullptr;
+	
 }
 
 //Method allows the Employee to login as Client using the id & password of that Client
@@ -140,8 +158,9 @@ Client* EmployeeManager::login_as_Client(int id, string pass)
 
 	while (flag) 
 	{
+		Client* client = FileManager::Client_search(id);
 
-		if (FileManager::Client_search(id) != nullptr and FileManager::Client_search(id)->get_password() == pass) {
+		if (client != nullptr and client->get_password() == pass) {
 
 			Client* client = ClientManger::login(id, pass);
 			ClientManger::Client_options(client);
@@ -182,57 +201,93 @@ bool EmployeeManager::Employee_options(Employee* employee)
 
 	int choice;
 	cin >> choice;
+	if (!cin.fail() and choice >= 1 and choice <= 8) {
 
-	switch (choice)
-	{
-	case 1:
-		system("cls");
-		employee->display_info();
-		system("pause");
-		break;
-	case 2:
-		system("cls");
-		update_pass(main_id);
-		system("pause");
-		break;
-	case 3:
-		system("cls");
-		new_Client(employee);
-		system("pause");
-		break;
-	case 4:
-		system("cls");
-		Client_search(employee);
-		system("pause");
-		break;
-	case 5:
-		system("cls");
-		List_all_Clients(employee);
-		system("pause");
-		break;
-	case 6:
-		system("cls");
-		Edit_Client_info(employee);
-		break;
-	case 7:
-	{
-		system("cls");
-		cout << "Enter the Client id & it's password : ";
-		int id;
-		cin >> id;
-		string pass;
-		cin >> pass;
-		login_as_Client(id, pass);
-		system("pause");
-		break;
+		switch (choice)
+		{
+		case 1:
+			system("cls");
+			employee->display_info();
+			system("pause");
+			break;
+		case 2:
+			system("cls");
+			update_pass(main_id);
+			system("pause");
+			break;
+		case 3:
+		{
+			system("cls");
+			Client client = new_Client(employee);
+			system("cls");
+			cout << "\x1B[5mClient Added successfully\033[0m " << endl;
+			cout << "The id of the Client you just added is : ";
+			cout << client.get_id() << endl;
+			system("pause");
+			break;
+		}
+		case 4:
+			system("cls");
+			Client_search(employee);
+			system("pause");
+			break;
+		case 5:
+			system("cls");
+			List_all_Clients(employee);
+			system("pause");
+			break;
+		case 6:
+			system("cls");
+			Edit_Client_info(employee);
+			cout << "\x1B[5mClient Info updated successfully\033[0m " << endl;
+			break;
+		case 7:
+		{
+			system("cls");
+
+			Encdec::Decryption("Client.txt");
+			ifstream file("Client.txt");
+
+			file.seekg(0, ios::out);
+
+			if (file.tellg() != 0) {
+				file.close();
+				Encdec::Encryption("Client.txt");
+				cout << "Enter the id of the Client account you want to enter : ";
+				int id;
+				cin >> id;
+				cout << "Enter the password of the Client account you want to enter : ";
+				string pass;
+				cin >> pass;
+				login_as_Client(id, pass);
+			}
+			else {
+				cout << "There is no Clients in the Database " << endl;
+			}
+
+			system("pause");
+			break;
+		}
+		case 8:
+			system("cls");
+			cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
+
+				sleep_until(system_clock::now() + 2s);
+				return false;
+		}
+
 	}
-	case 8:
-		cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
-		sleep_until(system_clock::now() + 2s);
-		return false;
-		break;
-	
+	else {
+
+		cout << "Invalid choice " << endl;
+		sleep_until(system_clock::now() + 0.5s);
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		system("Cls");
+		Employee_options(employee);
+		cin >> choice;
+
 	}
-	
 	Employee_options(employee);
+
 }

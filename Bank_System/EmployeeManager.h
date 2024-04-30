@@ -23,7 +23,7 @@ class EmployeeManager
 
 public:
 
-	static void new_Client(Employee* employee);
+	static Client new_Client(Employee* employee);
 
 	static void List_all_Clients(Employee* employee);
 

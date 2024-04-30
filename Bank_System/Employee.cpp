@@ -122,10 +122,11 @@ void Employee::edit_Client_menu(int id) {
         case 1:
             if (FilesHelper::Client_search(id) != nullptr)
             {
-                cout << "New Name: ";
+                system("cls");
+                cout << "Enter the new Name: ";
                 cin >> name;
                 FilesHelper::Client_search(id)->set_name(name);
-                cout << "\x1B[5mData Updated successfuly\033[0m " << endl;
+                cout << "\x1B[5mData Updated successfully\033[0m " << endl;
                 flag = false;
             }
             break;
@@ -134,10 +135,11 @@ void Employee::edit_Client_menu(int id) {
 
             if (FilesHelper::Client_search(id) != nullptr)
             {
-                cout << "New Password: ";
+                system("cls");
+                cout << "Enter the new Password: ";
                 cin >> password;
                 FilesHelper::Client_search(id)->set_password(password);
-                cout << "\x1B[5mData Updated successfuly\033[0m " << endl;
+                cout << "\x1B[5mData Updated successfully\033[0m " << endl;
                 flag = false;
             }
             break;
@@ -145,10 +147,11 @@ void Employee::edit_Client_menu(int id) {
         case 3:
             if (FilesHelper::Client_search(id) != nullptr)
             {
-                cout << "New Balance: ";
+                system("cls");
+                cout << "Enter the new Balance: ";
                 cin >> balance;
                 FilesHelper::Client_search(id)->set_balance(balance);
-                cout << "\x1B[5mData Updated successfuly\033[0m " << endl;
+                cout << "\x1B[5mData Updated successfully\033[0m " << endl;
                 flag = false;
             }
             break;
@@ -157,18 +160,19 @@ void Employee::edit_Client_menu(int id) {
 
             if (FilesHelper::Client_search(id) != nullptr)
             {
-                cout << "New Name: ";
+                system("cls");
+                cout << "Enter the new Name: ";
                 cin >> name;
                 FilesHelper::Client_search(id)->set_name(name);
 
-                cout << "New Password: ";
+                cout << "Enter the new Password: ";
                 cin >> password;
                 FilesHelper::Client_search(id)->set_password(password);
 
-                cout << "New Balance: ";
+                cout << "Enter the new Balance: ";
                 cin >> balance;
                 FilesHelper::Client_search(id)->set_balance(balance);
-                cout << "\x1B[5mData Updated successfuly\033[0m " << endl;
+                cout << "\x1B[5mData Updated successfully\033[0m " << endl;
                 flag = false;
             }
             break;
@@ -229,9 +233,9 @@ void Employee::update_Client(int id)
     }
 }
 
-//The Remove_client method takes the id of the client the Employeee wants to remove from the database and search in the database
-//if found the method delets it's data completly from the database 
-//if not found it tells the Employee that the id is not listed in the databasee
+//The Remove_client method takes the id of the client the Employee wants to remove from the database and search in the database
+//if found the method deletes it's data completely from the database 
+//if not found it tells the Employee that the id is not listed in the database
 void Employee::Remove_client(int id) 
 {
 

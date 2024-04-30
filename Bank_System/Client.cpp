@@ -9,10 +9,10 @@ Client::Client()
     int id;
     IdGenerator::last_Client_id(id);
     client_id = id;
-    
+    balance = 0;
 }
 
-
+//parametrized constructor
 Client::Client(string name, string password, double balance)
     : Person(name, password), balance(balance)
 {
@@ -128,7 +128,7 @@ void Client::display_info()
 {
 
     cout << "Name: " << name << endl
-        << "You'r unique ID is : " << client_id << endl
+        << "Your unique ID is : " << client_id << endl
         << "Password: " <<password<< endl
         << "Balance: " << balance << endl;
 }

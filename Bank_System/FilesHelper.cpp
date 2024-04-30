@@ -13,9 +13,9 @@ void FilesHelper::save_Client(Client &client) {
 	int last_id; 
 	IdGenerator::last_Client_id(last_id);
 
-
+	Encdec::Decryption("Client.txt");
 	ofstream file("Client.txt", ios::app);
-
+	
 	if (!file.is_open()) {
 		cout << "Error while opening the file" << endl;
 	}
@@ -25,13 +25,15 @@ void FilesHelper::save_Client(Client &client) {
 			<< last_id << ',' 
 			<< client.get_password() << ','
 			<< client.get_balance()<<'\n';
+
+		
 		file.close();
 	}
-
+	Encdec::Encryption("Client.txt");
 	ofstream file3("Client_last_id.txt");
-
 	file3 << last_id;
 	file3.close();
+	
 	return;
 }
 
@@ -48,7 +50,7 @@ void FilesHelper::save_Employee(Employee &employee) {
 	IdGenerator::last_Employee_id(last_id);
 
 
-
+	Encdec::Decryption("Employee.txt");
 	ofstream file("Employee.txt", ios::app); 
 
 		if (!file.is_open()) {
@@ -64,7 +66,7 @@ void FilesHelper::save_Employee(Employee &employee) {
 			
 			file.close();
 		}
-
+		Encdec::Encryption("Employee.txt");
 		ofstream file3("Employee_last_id.txt");
 
 		file3 << last_id;
@@ -82,7 +84,7 @@ void FilesHelper::save_Admins(Admin &admin) {
 	int last_id;
 	IdGenerator::last_Admin_id(last_id);
 
-
+	Encdec::Decryption("Admin.txt");
 	ofstream file("Admin.txt", ios::app);
 
 	if (!file.is_open()) {
@@ -103,9 +105,9 @@ void FilesHelper::save_Admins(Admin &admin) {
 		file.close();
 
 	}
-
+	Encdec::Encryption("Admin.txt");
+	
 	ofstream file3("Admin_last_id.txt");
-
 	file3 << last_id;
 	file3.close();
 
@@ -118,7 +120,9 @@ void FilesHelper::get_all_Clients() {
 	
 	ifstream file;
 	string line;
+	Encdec::Decryption("Client.txt");
 	file.open("Client.txt" , ios::in);
+	
 	if (!file.is_open()) {
 		cout << "Error while opening the file" << endl;
 	}
@@ -134,7 +138,8 @@ void FilesHelper::get_all_Clients() {
 
 	}
 	
-
+	Encdec::Encryption("Client.txt");
+	return;
 }
 
 //the main function that reads every line of the Employee file
@@ -144,7 +149,8 @@ void FilesHelper::get_all_Employee() {
 
 	ifstream file;
 	string line;
-	file.open("Employee.txt");
+	Encdec::Decryption("Employee.txt");
+	file.open("Employee.txt" , ios::in);
 	
 	if (!file.is_open()) {
 		cout << "Error while opening the file " << endl;
@@ -161,6 +167,7 @@ void FilesHelper::get_all_Employee() {
 		file.close();
 		
 	}
+	Encdec::Encryption("Employee.txt");
 }
 
 //the main function that reads every line of the Admin file
@@ -170,8 +177,8 @@ void FilesHelper::get_all_Admins() {
 
 	ifstream file;
 	string line;
-
-	file.open("Admin.txt");
+	Encdec::Decryption("Admin.txt");
+	file.open("Admin.txt" ,ios::in);
 
 	if (!file.is_open()) {
 		cout << "Admin file can't be retched" << endl;
@@ -189,6 +196,7 @@ void FilesHelper::get_all_Admins() {
 		}
 		file.close();
 	}
+	Encdec::Encryption("Admin.txt");
 }
 
 //The Delete_all_Clients method used to delete all the data that is found in the vector 
@@ -207,8 +215,9 @@ void FilesHelper::Delete_all_Employee()
 // then call the display_info for every client in the vector to print it's unique info
 void FilesHelper::display_all_clients() {
 
+	Encdec::Decryption("Client.txt");
 	ifstream file("Client.txt");
-
+	
 	file.seekg(0, ios::out);
 
 	if (file.tellg() != 0) {
@@ -222,14 +231,16 @@ void FilesHelper::display_all_clients() {
 	else {
 		cout << "There is no Clients in the Database "<<endl;
 	}
-
 	
+	file.close();
+	Encdec::Encryption("Client.txt");
 }
 
 //the Display_Employee function first call the the get_all_Client to store the data in the vector 
 // then call the display_info for every Employee in the vector to print it's unique info
 void FilesHelper::display_all_employee() {
 
+	Encdec::Decryption("Employee.txt");
 	ifstream file("Employee.txt");
 
 	file.seekg(0, ios::out);
@@ -245,6 +256,8 @@ void FilesHelper::display_all_employee() {
 	else {
 		cout << "There is no Employees in the Database " << endl;
 	}
+	file.close();
+	Encdec::Encryption("Employee.txt");
 }
 
 
@@ -252,13 +265,24 @@ void FilesHelper::display_all_employee() {
 // then call the display_info for every Admin in the vector to print it's unique info
 void FilesHelper::display_all_admins() {
 
-	get_all_Admins();
+	Encdec::Decryption("Admin.txt");
+	ifstream file("Admin.txt");
 
-	for (auto& admin : Admins) {
+	file.seekg(0, ios::out);
 
-		admin.display_info();
-		cout << "--------------------" << endl;
+	if (file.tellg() != 0) {
+
+		for (auto& Admin : Admins) {
+
+			Admin.display_info();
+			cout << "--------------------" << endl;
+		}
 	}
+	else {
+		cout << "There is no Admins in the Database " << endl;
+	}
+	file.close();
+	Encdec::Encryption("Admin.txt");
 }
 
 //the Client_Search function used to search in the database for a specific client 
@@ -268,8 +292,6 @@ void FilesHelper::display_all_admins() {
 Client* FilesHelper::Client_search(int id) {
 
 	
-	get_all_Clients();
-
 	for (auto& Client : clients) {
 		
 		if (Client.get_id() == id) {
@@ -289,8 +311,7 @@ Client* FilesHelper::Client_search(int id) {
 // if the Employee found it return it's data if not it return nullptr
 Employee* FilesHelper::Employee_search(int id) {
 
-	get_all_Employee();
-	
+
 	for (auto &Employee : Employees) {
 		
 		if (Employee.get_id() == id) {
@@ -309,7 +330,6 @@ Employee* FilesHelper::Employee_search(int id) {
 // if the Admin found it return it's data if not it return nullptr
 Admin* FilesHelper::Admin_search(int id) {
 
-	get_all_Admins();
 
 	for (auto& Admin : Admins) {
 
@@ -318,6 +338,8 @@ Admin* FilesHelper::Admin_search(int id) {
 			return &Admin;
 		}
 	}
+
+	return nullptr;
 }
 
 //search_all_data function used to search the three types of information in one function using template
@@ -425,7 +447,7 @@ void FilesHelper::Clear_Files(string filename, string FileName) {
 void FilesHelper::Update_Client(int id) {
 
 
-
+	Encdec::Decryption("Client.txt");
 	ifstream file("Client.txt");
 
 	ofstream temp_file("Temp_Client.txt", ios::out);
@@ -450,23 +472,23 @@ void FilesHelper::Update_Client(int id) {
 		}
 
 		IdGenerator::current_Line_Generator(currentLine);
-
-
 	}
-
+	
 	file.close();
 	temp_file.close();
 
 	string fileName = "Client.txt";
 
-
 	remove(fileName.c_str());
 	rename("Temp_Client.txt", fileName.c_str());
+	Encdec::Encryption("Client.txt");
+	
 }
 
 //The Update_Employee takes the id of the Employee that it's data have been updated and Renters it in the database
 void FilesHelper::Update_Employee(int id) {
 
+	Encdec::Decryption("Employee.txt");
 	ifstream file("Employee.txt");
 
 	ofstream temp_file("Temp_Employee.txt", ios::out);
@@ -503,11 +525,13 @@ void FilesHelper::Update_Employee(int id) {
 
 	remove(fileName.c_str());
 	rename("Temp_Employee.txt", fileName.c_str());
+	Encdec::Encryption("Employee.txt");
 }
 
 //The Update_Admin takes the id of the Admin that it's data have been updated and Renters it in the database
 void FilesHelper::Update_Admins(int id)
 {
+	Encdec::Decryption("Admin.txt");
 	ifstream file("Admin.txt");
 
 	ofstream temp_file("Temp_Admin.txt", ios::out);
@@ -544,11 +568,14 @@ void FilesHelper::Update_Admins(int id)
 
 	remove(fileName.c_str());
 	rename("Temp_Admin.txt", fileName.c_str());
+	Encdec::Encryption("Admin.txt");
 }
 
 //The Remove_specific_Client method takes the id for specific Client and remove it from the database
 void FilesHelper::Remove_specific_Client(int id)
 {
+
+	Encdec::Decryption("Client.txt");
 	ifstream file("Client.txt");
 
 	ofstream temp_file("Temp_Client.txt", ios::out);
@@ -570,7 +597,7 @@ void FilesHelper::Remove_specific_Client(int id)
 
 
 	}
-
+	
 	file.close();
 	temp_file.close();
 
@@ -579,11 +606,13 @@ void FilesHelper::Remove_specific_Client(int id)
 
 	remove(fileName.c_str());
 	rename("Temp_Client.txt", fileName.c_str());
+	Encdec::Encryption("Client.txt");
 }
 
 //The Remove_specific_Employee method takes the id for specific Client and remove it from the database
 void FilesHelper::Remove_specific_Employee(int id)
 {
+	Encdec::Decryption("Employee.txt");
 	ifstream file("Employee.txt");
 
 	ofstream temp_file("Temp_Employee.txt", ios::out);
@@ -611,7 +640,7 @@ void FilesHelper::Remove_specific_Employee(int id)
 
 	string fileName = "Employee.txt";
 
-
 	remove(fileName.c_str());
 	rename("Temp_Employee.txt", fileName.c_str());
+	Encdec::Encryption("Employee.txt");
 }

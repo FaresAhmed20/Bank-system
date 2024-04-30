@@ -2,7 +2,7 @@
 
 
 
-//Mthod to print the Bank name
+//Method to print the Bank name
 void Screen::Bank_Name()
 {
 
@@ -38,9 +38,9 @@ void Screen::Welcome()
 void Screen::login_options()
 {
     cout << "Login option is : " << endl;
-    cout << "1-Admin " << endl;
-    cout << "2-Employee " << endl;
-    cout << "3-Client " << endl;
+    cout << "1-" << "\x1B[93mAdmin\033[0m" << endl;
+    cout << "1-" << "\x1B[93mEmployee\033[0m" << endl;
+    cout << "1-" << "\x1B[93mClient\033[0m" << endl;
     cout << "4-"<<"\x1B[31mLogout \033[0m" << endl;
 }
 
@@ -51,31 +51,47 @@ int Screen::login_as()
     login_options();
     cout << "Enter your choice : ";
     int choice;
-    cin >> choice;
     bool flag = true;
-
+    cin >> choice;
     while (flag)
     {
-        if (choice == 1 || choice == 2 || choice == 3) {
-            flag = false;
-            return choice;
-        }
-        else if (choice == 4) {
-            logout();
+
+
+       
+        
+        if (!cin.fail() and choice >= 1 and choice <= 4) {
+
+
+
+            if (choice == 1 || choice == 2 || choice == 3) {
+                flag = false;
+                return choice;
+            }
+            else if (choice == 4) {
+                logout();
+            }
+
         }
         else {
+
             cout << "Invalid choice " << endl;
+            sleep_until(system_clock::now() + 0.5s);
+            system("cls");
             login_options();
-            cout << "Renter a Valid choice : ";
+            cout << "Enter your choice : ";
             cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> choice;
+
         }
     }
 }
 
+
 //The logout ,method used to log out from the system completely
 void Screen::logout()
 {
+    
     system("cls");
     cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
     exit(0);
@@ -93,57 +109,177 @@ void Screen::login_screen(int choice)
     cin >> pass;
 
     if (choice == 1) {
-        
-        if (AdminManager::login(id, pass) != nullptr) {
-            while (AdminManager::Admin_options(AdminManager::login(id, pass)) != false);
-            login_screen(login_as());;
+
+        bool flag = true;
+
+        while (flag) {
+
+            if (AdminManager::login(id, pass) != nullptr) {
+                while (AdminManager::Admin_options(AdminManager::login(id, pass)) != false);
+                login_screen(login_as());;
+                flag = false;
+            }
+            else {
+                system("cls");
+                cout << "The data you entered is not found in the Database  "<<endl;
+                cout << "Do you want to Renter another time : (Y/N) ";
+                char ans;
+                cin >> ans;
+                
+                if (tolower(ans) == 'y') {
+
+                    system("cls");
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Enter the id of your account : ";
+                    cin >> id;
+                    cout << "Enter the password of your account : ";
+                    cin >> pass;
+
+
+                }
+                else {
+                    login_screen(login_as());
+                    flag = false;
+                    break;
+                }
+            }
         }
     }
     else if (choice == 2) {
 
+
+        bool flag = true;
+
+        while (flag) {
+
             if (EmployeeManager::login(id, pass) != nullptr) {
 
                 while (EmployeeManager::Employee_options(EmployeeManager::login(id, pass)) != false);
-                login_screen(login_as());
+                login_screen(login_as());;
 
             }
+            
+            else{
+
+                system("cls");
+                cout << "The data you entered is not found in the Database  " << endl;
+                cout << "Do you want to Renter another time : (Y/N) ";
+                char ans;
+                cin >> ans;
+
+                if (tolower(ans) == 'y') {
+
+                    system("cls");
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Enter the id of your account : ";
+                    cin >> id;
+                    cout << "Enter the password of your account : ";
+                    cin >> pass;
+
+
+                }
+                else {
+                    login_screen(login_as());
+                    flag = false;
+                    break;
+                }
+            }
+        }
 
     }
     else {
-        
-        if (ClientManger::login(id, pass) != nullptr) {
 
-            while (ClientManger::Client_options(ClientManger::login(id, pass)) != false);
-            login_screen(login_as());
+        bool flag = true;
+
+        while (flag) {
+
+            if (ClientManger::login(id, pass) != nullptr) {
+
+                while (ClientManger::Client_options(ClientManger::login(id, pass)) != false);
+                login_screen(login_as());;
+                flag = false;
+                break;
+
+            }
+            else{
+
+                system("cls");
+                cout << "The data you entered is not found in the Database  " << endl;
+                cout << "Do you want to Renter another time : (Y/N) ";
+                char ans;
+                cin >> ans;
+
+                if (tolower(ans) == 'y') {
+
+                    system("cls");
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Enter the id of your account : ";
+                    cin >> id;
+                    cout << "Enter the password of your account : ";
+                    cin >> pass;
+
+
+                }
+                else {
+                    login_screen(login_as());
+                    flag = false;
+                    break;
+                }
+            }
         }
     }
+    
+
+       
+        
+    
 }
 
 //The First_Admin method used to check if there is no data in the admin file it adds one so the user can access the system using that account
 void Screen::First_Admin()
 {
+    Encdec::Decryption("Admin.txt");
     ifstream file("Admin.txt");
     
     file.seekg(0, ios::out);
-     
+    
     if (file.tellg() == 0) {
+
+        file.close();
+        Encdec::Encryption("Admin.txt");
+
 
         Admin admin("Admin", "Admin", 5000);
         
         FilesHelper::save_Admins(admin);
+        FileManager::get_all_Admins();
+        exit;
     }
+    else if (file.tellg() != 0) {
+
+        file.close();
+        Encdec::Encryption("Admin.txt");
+       
+    }
+  
+  
+  
 }
 
 //The RunApp method is the method that collects all the App and run it
 void Screen::RunApp()
 {
+    
     FileManager::Get_All_Data();
     First_Admin();
     Bank_Name();
     sleep_until(system_clock::now() + 3s);
     system("cls");
     Welcome();
-    sleep_until(system_clock::now() + 4s);
+    sleep_until(system_clock::now() + 5s);
     system("cls");
     login_screen(login_as());
 }

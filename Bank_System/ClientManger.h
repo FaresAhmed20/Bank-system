@@ -20,7 +20,7 @@ class ClientManger
 
 public:
 
-	static void Update_Pass(int id);
+	static void Update_Pass(int id );
 
 	static Client* login(int id, string pass);
 
