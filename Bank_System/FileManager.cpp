@@ -106,22 +106,40 @@ Client* FileManager::Client_search(int id) {
 
 
 
-	while (true) {
+	int temp_id = id;
+	int temp = 0;
+	while (temp_id) {
+
+		temp = temp_id % 10;
+		temp_id /= 10;
+
+	}
+	
+	if (temp_id == 3) {
+
+		Client* client = FilesHelper::Client_search(id);
+
+		if ( client == nullptr) {
 
 
+			return  nullptr;
 
-		if (FilesHelper::Client_search(id) == nullptr) {
-
-		  return  nullptr;
-			
 		}
 		else {
-			
-		    return FilesHelper::Client_search(id);
-			
+
+			return client;
+
 		}
 
 	}
+	else {
+
+		return nullptr;
+	}
+
+
+	
+
 
 }
 
@@ -133,31 +151,41 @@ Employee* FileManager::Employee_search(int id) {
 
 	
 
-	while (true) {
+	int temp_id = id;
+	int temp = 0;
+	while (temp_id) {
+
+		temp = temp_id % 10;
+		temp_id /= 10;
+
+	}
 
 
+	if (temp_id == 2) {
 
+		Employee* employee = FilesHelper::Employee_search(id);
 
-		while (true) {
-
-
-
-			if (FilesHelper::Employee_search(id) == nullptr) {
+			if ( employee == nullptr) {
 
 				return  nullptr;
 
 			}
 			else {
 
-				return FilesHelper::Employee_search(id);
+				return employee;
 
 			}
 
-		}
-
+		
 	}
+	else {
+		return nullptr;
+	}
+	
 
 
+
+		
 
 }
 
@@ -167,31 +195,38 @@ Employee* FileManager::Employee_search(int id) {
 //if not it the user can enter another id or just quit the function
 Admin* FileManager::Admin_search(int id) {
 
+	int temp_id = id;
+	int temp = 0;
+	while (temp_id) {
+
+		temp = temp_id % 10;
+		temp_id /= 10;
+
+	}
 	
+	if (temp == 1) {
 
+		Admin* admin = FilesHelper::Admin_search(id);
 
-	if (FilesHelper::Admin_search(id) == nullptr) {
+		if (admin == nullptr) {
 
-		cout << "Admin is not found. " << endl;
-		cout << "Are you want to search using another id : (y/n) ";
-		char c;
-		cin >> c;
-		if (c == 'y' || c == 'Y') {
-			cout << "Enter the new id you want to search for : ";
-			cin.clear();
-			cin.ignore(INT_MAX, '\n');
-			cin >> id;
+			return nullptr;
+
 		}
 		else {
-			return 0;
+
+			return admin;
+
 		}
 
 	}
 	else {
+
 		
-		return FilesHelper::Admin_search(id);
-		
+		return nullptr;
 	}
+
+	
 }
 
 //search_all_data uses the template to search among all the data in the csv file

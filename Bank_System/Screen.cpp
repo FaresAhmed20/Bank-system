@@ -75,7 +75,10 @@ int Screen::login_as()
         else {
 
             cout << "Invalid choice " << endl;
-            cout << "Renter a Valid choice : ";
+            sleep_until(system_clock::now() + 0.5s);
+            system("cls");
+            login_options();
+            cout << "Enter your choice : ";
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin >> choice;
@@ -106,13 +109,49 @@ void Screen::login_screen(int choice)
     cin >> pass;
 
     if (choice == 1) {
-        
-        if (AdminManager::login(id, pass) != nullptr) {
-            while (AdminManager::Admin_options(AdminManager::login(id, pass)) != false);
-            login_screen(login_as());;
+
+        bool flag = true;
+
+        while (flag) {
+
+            if (AdminManager::login(id, pass) != nullptr) {
+                while (AdminManager::Admin_options(AdminManager::login(id, pass)) != false);
+                login_screen(login_as());;
+                flag = false;
+            }
+            else {
+                system("cls");
+                cout << "The data you entered is not found in the Database  "<<endl;
+                cout << "Do you want to Renter another time : (Y/N) ";
+                char ans;
+                cin >> ans;
+                
+                if (tolower(ans) == 'y') {
+
+                    system("cls");
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Enter the id of your account : ";
+                    cin >> id;
+                    cout << "Enter the password of your account : ";
+                    cin >> pass;
+
+
+                }
+                else {
+                    login_screen(login_as());
+                    flag = false;
+                    break;
+                }
+            }
         }
     }
     else if (choice == 2) {
+
+
+        bool flag = true;
+
+        while (flag) {
 
             if (EmployeeManager::login(id, pass) != nullptr) {
 
@@ -120,16 +159,83 @@ void Screen::login_screen(int choice)
                 login_screen(login_as());;
 
             }
+            
+            else{
+
+                system("cls");
+                cout << "The data you entered is not found in the Database  " << endl;
+                cout << "Do you want to Renter another time : (Y/N) ";
+                char ans;
+                cin >> ans;
+
+                if (tolower(ans) == 'y') {
+
+                    system("cls");
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Enter the id of your account : ";
+                    cin >> id;
+                    cout << "Enter the password of your account : ";
+                    cin >> pass;
+
+
+                }
+                else {
+                    login_screen(login_as());
+                    flag = false;
+                    break;
+                }
+            }
+        }
 
     }
     else {
-        
-        if (ClientManger::login(id, pass) != nullptr) {
 
-            while (ClientManger::Client_options(ClientManger::login(id, pass)) != false);
-            login_screen(login_as());;
+        bool flag = true;
+
+        while (flag) {
+
+            if (ClientManger::login(id, pass) != nullptr) {
+
+                while (ClientManger::Client_options(ClientManger::login(id, pass)) != false);
+                login_screen(login_as());;
+                flag = false;
+                break;
+
+            }
+            else{
+
+                system("cls");
+                cout << "The data you entered is not found in the Database  " << endl;
+                cout << "Do you want to Renter another time : (Y/N) ";
+                char ans;
+                cin >> ans;
+
+                if (tolower(ans) == 'y') {
+
+                    system("cls");
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+                    cout << "Enter the id of your account : ";
+                    cin >> id;
+                    cout << "Enter the password of your account : ";
+                    cin >> pass;
+
+
+                }
+                else {
+                    login_screen(login_as());
+                    flag = false;
+                    break;
+                }
+            }
         }
     }
+    
+
+       
+        
+    
 }
 
 //The First_Admin method used to check if there is no data in the admin file it adds one so the user can access the system using that account

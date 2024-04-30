@@ -25,13 +25,14 @@ void AdminManager::AdminsMenu()
 }
 
 //method to add new client
-void AdminManager::new_Client(Admin* admin)
+Client AdminManager::new_Client(Admin* admin)
 {
 	system("cls");
 	Client client;
 	admin->add_Client(client);
 	FileManager::Delete_all_Clients();
 	FileManager::get_all_Clients();
+	return client;
 }
 
 //Method to delete the Client from the database
@@ -87,7 +88,7 @@ void AdminManager::Client_search(Admin* admin)
 
 			system("cls");
 			cout << "Client is found successfully " << endl;
-			cout << "To access this account enter Enter : ";
+			cout << "To access this account please press Enter . ";
 			sleep_until(system_clock::now() + 2s);
 			cin.get();
 
@@ -96,10 +97,12 @@ void AdminManager::Client_search(Admin* admin)
 			while (flag2) {
 
 				if (cin.get() == '\n') {
+
 					cout << "The Client data is : " << endl;
 					admin->Client_search(id)->display_info();
 					flag = false;
 					flag2 = false;
+
 				}
 				else {
 					cout << "Wrong key please try again : ";
@@ -163,13 +166,14 @@ Client* AdminManager::login_as_Client(int id, string pass)
 }
 
 //Method to add new Employee to the database
-void AdminManager::new_Employee(Admin* admin)
+Employee AdminManager::new_Employee(Admin* admin)
 {
 	system("cls");
-	Employee e;
-	admin->add_Employee(e);
+	Employee employee;
+	admin->add_Employee(employee);
 	FileManager::Delete_all_Employees();
 	FileManager::get_all_Employee();
+	return employee;
 }
 
 //Method to delete the Employee from the database
@@ -206,27 +210,38 @@ void AdminManager::Employee_search(Admin* admin)
 				cin.ignore(INT_MAX, '\n');
 				cin >> id;
 			}
+			else if (ans == 'N' || ans == 'n') {
+
+				flag = false;
+				break;
+
+			}
 		}
 		else {
 
 			system("cls");
 			cout << "Employee is found successfully " << endl;
-			cout << "To access this account enter Enter : ";
-
+			cout << "To access this account please press Enter . ";
+			sleep_until(system_clock::now() + 0.5s);
+			cin.get();
 			bool flag2 = true;
 
 			while (flag2) {
 
 				if (cin.get() == '\n') {
+
 					cout << "The Employee data is : " << endl;
 					admin->Employee_search(id)->display_info();
 					flag = false;
 					flag2 = false;
+
 				}
 				else {
+
 					cout << "Wrong key please try again : ";
 					cin.clear();
 					cin.get();
+
 				}
 			}
 
@@ -262,7 +277,9 @@ void AdminManager::login_as_Employee(int id, string pass)
 	while (flag)
 	{
 
-		if (FileManager::Employee_search(id) != nullptr and FileManager::Employee_search(id)->get_password() == pass) {
+		Employee* employee = FileManager::Employee_search(id);
+
+		if ( employee != nullptr and employee->get_password() == pass) {
 
 			Employee* Employee = EmployeeManager::login(id, pass);
 			EmployeeManager::Employee_options(Employee);
@@ -295,28 +312,41 @@ void AdminManager::login_as_Employee(int id, string pass)
 //The login function of the Admin that takes the Admin id & password and check if the Admin exists in the database or not
 Admin* AdminManager::login(int id, string pass)
 {
-	if (FileManager::Admin_search(id)->get_id() == id && FileManager::Admin_search(id)->get_password() == pass) {
+
+	Admin* admin = FileManager::Admin_search(id);
 
 
-		return FileManager::Admin_search(id);
+	if ( admin != nullptr) {
 
+		if (admin->get_id() == id && admin->get_password() == pass) {
+
+
+			return admin;
+
+		}
+		else {
+			return nullptr;
+		}
 	}
-	else {
-		return nullptr;
-	}
+	
+	return nullptr;
+
+	
 
 }
 
 //Method to update the password of the Admin Account 
 void AdminManager::update_pass(int id)
 {
-	if (FileManager::Admin_search(id) != nullptr) {
+	Admin* admin = FileManager::Admin_search(id);
+
+	if ( admin != nullptr) {
 
 		string pass;
 		cout << "Enter the new password : ";
 		cin >> pass;
 
-		FilesHelper::Admin_search(id)->set_password(pass);
+		admin->set_password(pass);
 		FileManager::update_all_Admins(id);
 		
 		cout << "\x1B[5mPassword updated successfully\033[0m" << endl;
@@ -353,10 +383,15 @@ bool AdminManager::Admin_options(Admin* admin)
 			system("pause");
 			break;
 		case 3:
-			new_Client(admin);
+		{
+			Client client = new_Client(admin);
+			system("cls");
 			cout << "\x1B[5mClient Added successfully\033[0m " << endl;
+			cout << "The id of the Client you just added is : ";
+			cout << client.get_id()<<endl;
 			system("pause");
 			break;
+		}
 		case 4:
 		{
 			bool flag = true;
@@ -450,10 +485,15 @@ bool AdminManager::Admin_options(Admin* admin)
 			break;
 		}
 		case 10:
-			new_Employee(admin);
+		{
+			Employee employee = new_Employee(admin);
+			system("cls");
 			cout << "\x1B[5mEmployee updated successfully\033[0m " << endl;
+			cout << "The Id of the Employee you just added is : ";
+			cout << employee.get_id()<<endl;
 			system("pause");
 			break;
+		}
 		case 11:
 		{
 
@@ -549,7 +589,7 @@ bool AdminManager::Admin_options(Admin* admin)
 		}
 		case 17:
 			system("cls");
-			cout << " \x1B[5;33m                                          Thank you for using our Bank System  \033[0m                                                ";
+			cout << " \x1B[5;33m                                   Thank you for using our Bank System                       \033[0m                                                ";
 			sleep_until(system_clock::now() + 2s);
 			return false;
 			break;
@@ -597,22 +637,23 @@ bool AdminManager::Admin_options(Admin* admin)
 			{
 
 				if (cin.get() == '\n') {
+
 					system("cls");
 					cout << "\x1B[31m All Employees Are Going To Be Deleted \033[0m ";
 					FileManager::Remove_all_Employee();
 					FileManager::Delete_all_Employees();
 					system("cls");
 					cout << "\x1B[5mEmployees Deleted Successfully\033[0m " << endl;
-					system("pause");
 					break;
+
 				}
 
 				else {
 
-
 					cout << "You Entered a wrong key , Please Try Again : " << endl;
 					cin.clear();
 					cin.get();
+
 				}
 
 
@@ -625,13 +666,13 @@ bool AdminManager::Admin_options(Admin* admin)
 		}
 	}
 	else {
+
 		cout << "Invalid choice " << endl;
-		sleep_until(system_clock::now() + 0.9s);
+		sleep_until(system_clock::now() + 0.5s);
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		system("Cls");
 		Admin_options(admin);
-
 		cin >> choice;
 		
 	}

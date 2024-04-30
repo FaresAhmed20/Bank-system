@@ -1,4 +1,8 @@
-﻿  Screen.cpp
-C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Screen.cpp(153,9): warning C4551: function call missing argument list
-C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\Screen.cpp(85,1): warning C4715: 'Screen::login_as': not all control paths return a value
+﻿  AdminManager.cpp
+  ClientManger.cpp
+  EmployeeManager.cpp
+  Generating Code...
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\EmployeeManager.cpp(293,1): warning C4715: 'EmployeeManager::Employee_options': not all control paths return a value
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\ClientManger.cpp(192,1): warning C4715: 'ClientManger::Client_options': not all control paths return a value
+C:\Users\Blu-Ray\Bank_System\Bank-system\Bank_System\AdminManager.cpp(681,1): warning C4715: 'AdminManager::Admin_options': not all control paths return a value
   Bank_System.vcxproj -> C:\Users\Blu-Ray\Bank_System\Bank-system\x64\Debug\Bank_System.exe

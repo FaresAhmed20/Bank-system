@@ -292,8 +292,6 @@ void FilesHelper::display_all_admins() {
 Client* FilesHelper::Client_search(int id) {
 
 	
-	
-
 	for (auto& Client : clients) {
 		
 		if (Client.get_id() == id) {
