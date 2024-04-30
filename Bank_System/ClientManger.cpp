@@ -168,6 +168,7 @@ bool ClientManger::Client_options(Client* client)
 			break;
 		}
 		case 7:
+			system("cls");
 			cout << " \x1B[5;33m                                          Thank you for using our Bank System                                            \033[0m                                                ";
 			sleep_until(system_clock::now() + 2s);
 			return false;

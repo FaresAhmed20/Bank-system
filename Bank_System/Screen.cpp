@@ -38,9 +38,9 @@ void Screen::Welcome()
 void Screen::login_options()
 {
     cout << "Login option is : " << endl;
-    cout << "1-Admin " << endl;
-    cout << "2-Employee " << endl;
-    cout << "3-Client " << endl;
+    cout << "1-" << "\x1B[93mAdmin\033[0m" << endl;
+    cout << "1-" << "\x1B[93mEmployee\033[0m" << endl;
+    cout << "1-" << "\x1B[93mClient\033[0m" << endl;
     cout << "4-"<<"\x1B[31mLogout \033[0m" << endl;
 }
 
@@ -275,11 +275,11 @@ void Screen::RunApp()
     
     FileManager::Get_All_Data();
     First_Admin();
-    /*Bank_Name();
+    Bank_Name();
     sleep_until(system_clock::now() + 3s);
     system("cls");
     Welcome();
-    sleep_until(system_clock::now() + 3s);
-    system("cls");*/
+    sleep_until(system_clock::now() + 5s);
+    system("cls");
     login_screen(login_as());
 }

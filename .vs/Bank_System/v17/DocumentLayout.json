@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\AdminManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\ClientManger.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\ClientManger.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\AdminManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\AdminManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Screen.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Screen.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\EmployeeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\EmployeeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Screen.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Screen.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\ClientManger.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\ClientManger.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Admin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FileManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -33,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\EmployeeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\EmployeeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\AdminManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\AdminManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Client.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -81,10 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Admin.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3BC76CDB-D465-4564-8CA7-824DAAB27886}|Bank_System\\Bank_System.vcxproj|solutionrelative:Bank_System\\Admin.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -116,92 +116,105 @@
               "RelativeDocumentMoniker": "Bank_System\\AdminManager.cpp",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\AdminManager.cpp",
               "RelativeToolTip": "Bank_System\\AdminManager.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAA5AAAA",
+              "ViewState": "AQIAAGcBAAAAAAAAAAAewHYBAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-23T04:21:33.528Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EmployeeManager.cpp",
-              "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\EmployeeManager.cpp",
-              "RelativeDocumentMoniker": "Bank_System\\EmployeeManager.cpp",
-              "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\EmployeeManager.cpp",
-              "RelativeToolTip": "Bank_System\\EmployeeManager.cpp",
-              "ViewState": "AQIAAAsBAAAAAAAAAAAAAKEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T23:29:09.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ClientManger.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\ClientManger.cpp",
               "RelativeDocumentMoniker": "Bank_System\\ClientManger.cpp",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\ClientManger.cpp",
               "RelativeToolTip": "Bank_System\\ClientManger.cpp",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAADgAAAAAAAAA",
+              "ViewState": "AQIAAJMAAAAAAAAAAAAAAKoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-24T00:22:28.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Employee.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Employee.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Employee.cpp",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Employee.cpp",
               "RelativeToolTip": "Bank_System\\Employee.cpp",
-              "ViewState": "AQIAANoAAAAAAAAAAAAQwKoAAAAAAAAA",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAAwGwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-24T00:25:15.31Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Screen.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Screen.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Screen.cpp",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Screen.cpp",
               "RelativeToolTip": "Bank_System\\Screen.cpp",
-              "ViewState": "AQIAACoAAAAAAAAAAAAQwCIAAAABAAAA",
+              "ViewState": "AQIAAPMAAAAAAAAAAAAAABkBAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-23T05:47:20.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "FileManager.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FileManager.cpp",
               "RelativeDocumentMoniker": "Bank_System\\FileManager.cpp",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FileManager.cpp",
               "RelativeToolTip": "Bank_System\\FileManager.cpp",
-              "ViewState": "AQIAADEAAAAAAAAAAAAQwHcAAAATAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-24T00:38:25.651Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "FilesHelper.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FilesHelper.cpp",
               "RelativeDocumentMoniker": "Bank_System\\FilesHelper.cpp",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FilesHelper.cpp",
               "RelativeToolTip": "Bank_System\\FilesHelper.cpp",
-              "ViewState": "AQIAAAYBAAAAAAAAAAAQwEoBAAAgAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAAHgAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-24T00:41:12.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
+              "Title": "Admin.cpp",
+              "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.cpp",
+              "RelativeDocumentMoniker": "Bank_System\\Admin.cpp",
+              "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.cpp",
+              "RelativeToolTip": "Bank_System\\Admin.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAwwFEAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-24T00:09:39.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeManager.cpp",
+              "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\EmployeeManager.cpp",
+              "RelativeDocumentMoniker": "Bank_System\\EmployeeManager.cpp",
+              "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\EmployeeManager.cpp",
+              "RelativeToolTip": "Bank_System\\EmployeeManager.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-23T23:29:09.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "EmployeeManager.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\EmployeeManager.h",
               "RelativeDocumentMoniker": "Bank_System\\EmployeeManager.h",
@@ -209,25 +222,24 @@
               "RelativeToolTip": "Bank_System\\EmployeeManager.h",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABkAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-23T23:09:21.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T23:09:21.719Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "AdminManager.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\AdminManager.h",
               "RelativeDocumentMoniker": "Bank_System\\AdminManager.h",
               "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\AdminManager.h",
               "RelativeToolTip": "Bank_System\\AdminManager.h",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAwCkAAAAdAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADkAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-23T23:09:32.458Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Client.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Client.h",
               "RelativeDocumentMoniker": "Bank_System\\Client.h",
@@ -235,12 +247,11 @@
               "RelativeToolTip": "Bank_System\\Client.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-24T00:22:17.099Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-24T00:22:17.099Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Screen.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Screen.h",
               "RelativeDocumentMoniker": "Bank_System\\Screen.h",
@@ -252,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Employee.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Employee.h",
               "RelativeDocumentMoniker": "Bank_System\\Employee.h",
@@ -264,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "FilesHelper.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FilesHelper.h",
               "RelativeDocumentMoniker": "Bank_System\\FilesHelper.h",
@@ -276,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "ClientManger.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\ClientManger.h",
               "RelativeDocumentMoniker": "Bank_System\\ClientManger.h",
@@ -288,7 +299,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "FileManager.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\FileManager.h",
               "RelativeDocumentMoniker": "Bank_System\\FileManager.h",
@@ -300,7 +311,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Client.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Client.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Client.cpp",
@@ -312,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Person.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Person.h",
               "RelativeDocumentMoniker": "Bank_System\\Person.h",
@@ -324,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "DataSourceInterface.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\DataSourceInterface.h",
               "RelativeDocumentMoniker": "Bank_System\\DataSourceInterface.h",
@@ -336,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Bank_System.cpp",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Bank_System.cpp",
               "RelativeDocumentMoniker": "Bank_System\\Bank_System.cpp",
@@ -348,7 +359,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Admin.h",
               "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.h",
               "RelativeDocumentMoniker": "Bank_System\\Admin.h",
@@ -357,18 +368,6 @@
               "ViewState": "AQIAABsAAAAAAAAAAAAAACUAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-23T23:24:00.319Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Admin.cpp",
-              "DocumentMoniker": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.cpp",
-              "RelativeDocumentMoniker": "Bank_System\\Admin.cpp",
-              "ToolTip": "C:\\Users\\Blu-Ray\\Bank_System\\Bank-system\\Bank_System\\Admin.cpp",
-              "RelativeToolTip": "Bank_System\\Admin.cpp",
-              "ViewState": "AQIAAGwAAAAAAAAAAAASwAUBAACIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-24T00:09:39.205Z"
             }
           ]
         },

@@ -115,11 +115,11 @@ Client* FileManager::Client_search(int id) {
 
 	}
 	
-	if (temp_id == 3) {
+	if (temp == 3) {
 
 		Client* client = FilesHelper::Client_search(id);
 
-		if ( client == nullptr) {
+		if(client == nullptr) {
 
 
 			return  nullptr;
@@ -161,7 +161,7 @@ Employee* FileManager::Employee_search(int id) {
 	}
 
 
-	if (temp_id == 2) {
+	if (temp == 2) {
 
 		Employee* employee = FilesHelper::Employee_search(id);
 
